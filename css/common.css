@@ -1,0 +1,80 @@
+*{
+	margin: 0 auto;
+	padding : 0;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+img{
+	float: left;
+	width: 100%;
+	border: 0;
+}
+a{
+	text-decoration: none;
+}
+ul,ol{
+	list-style: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.highlight{
+	-webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+@font-face {
+    font-family: 'FangZheng';
+    src: url('../fonts/oYeCzi.eot');
+    src: url('../fonts/oYeCzi.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/oYeCzi.woff') format('woff'),
+         url('../fonts/oYeCzi.ttf') format('truetype'),
+         url('../fonts/oYeCzi.svg#webfont34M5alKg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HuiYuan';
+    src: url('../fonts/FZBWKSJW_0.eot');
+    src: url('../fonts/FZBWKSJW_0.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FZBWKSJW_0.woff') format('woff'),
+         url('../fonts/FZBWKSJW_0.ttf') format('truetype'),
+         url('../fonts/FZBWKSJW_0.svg#webfont34M5alKg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+button{
+    font-family: FangZheng;
+}
+h1,h2,h3,h4,h5,h6,b,strong{
+    font-weight: 500;
+}
+i,em{
+    font-style: normal;
+}
+.hint{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    display: none;
+    z-index: 9999999;
+}
+
+.hint > .hint_restart{
+    width: 4.5rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;
+    display: none;
+    opacity: 0;
+    margin-left: -2.5rem;
+    font-size: 0.3rem;
+    border-radius: 3px;
+}

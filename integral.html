@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>积分</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/integral.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header>
+		<ul>
+			<li>
+				<p>我的积分</p>
+				<p><span>1202</span>分</p>
+				<p></p>
+				<p>积分兑礼</p>
+			</li>
+		</ul>
+	</header>
+	<a class="right" href="integral_particulars.html">积分明细</a>
+	<div class="tab">
+
+		
+		<div class="member" style="display: none;">
+			<p>
+				<span><img src="images/icon_ku.png" alt=""></span>
+				<a>无礼品</a>
+			</p>
+		</div>
+
+		<div class="product">
+			<ul>
+				
+
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="hint">
+	<div>
+		<span></span>
+		<div>
+			<p>领取申请提交成功</p>
+			<p>请凭手机号到店领取</p>
+			<a href="#" class="close">确定</a>
+		</div>
+	</div>
+</div>
+<div class="warning"></div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+
+<script type="text/javascript">
+
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/Integral/getIntegral" , "get" , {
+		uid : uId
+	} ,function( data ){
+		if ( data.status == 0 )
+		{
+			$('header ul li p span').html( data.integral )
+
+			$.each( data.data , function(index, val) {
+				if ( val.c_status == null )
+				{
+
+					$('.product ul').append(`
+					<li c_id=${val.c_id} data-href="true">
+						<b><img src='${val.c_image}' alt=''></b>
+						<em></em>
+						<div>
+						 	<p>${val.c_integral_name}</p>
+						 	<p>积分：<i>${val.c_need_integral}</i></p>
+						</div>
+						<a>立即兑换</a>
+					</li>`)
+				}
+				else
+				{
+					$('.product ul').append(`
+					<li c_id=${val.c_id}  data-href="false">
+						<b><img src='${val.c_image}' alt=''></b>
+						<em></em>
+						<div>
+						 	<p>${val.c_integral_name}</p>
+						 	<p>积分：<i>${val.c_need_integral}</i></p>
+						 	<strong>已兑换，查看兑换码></strong>
+						</div>
+						<a class="active">已兑换</a>
+					</li>`)
+					
+				}
+
+			});
+
+			$('.product ul li a').click(function(event) {
+				let c_id = $(this).parent("li").attr('c_id');
+				let This = $(this).parent("li");
+				
+
+
+			});	
+
+
+
+			$('.product ul li div strong').click(function(){
+				var c_id = $(this).parents("li").attr('c_id');
+				window.location.href = "integral_exchange.html?c_id="+c_id;
+			})
+
+			$('.product ul li').click(function(event) {
+				var c_id = $(this).attr('c_id');
+				if( $(this).attr('data-href') == "true")
+				{
+					window.location.href = "integral_exchange_details.html?c_id="+c_id;
+				}
+			});
+		}
+		else
+		{
+			$('.warning').html( data.msg );
+			$('.warning').show();
+			setTimeout(function(){
+				$('.warning').hide();
+			},1000)
+		}
+		console.log( data )
+	})
+
+})  
+
+</script>
+
+
+</body>
+</html>
+
+
+

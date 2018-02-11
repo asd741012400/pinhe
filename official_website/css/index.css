@@ -1,0 +1,1025 @@
+body{
+	font-family: "FangZheng";
+}
+.navbar-default .navbar-nav>li>a:hover{
+	color: #692407;
+}
+.container-fluid{
+	width: 1200px;
+}
+
+.navbar-default{
+	background: #fff;
+	border-bottom: 1px solid #c0c0c0;
+	margin-bottom: 0;
+}
+.navbar-brand{
+	height: auto;
+}
+
+.navbar-brand{
+	padding: 0;
+	width: 1.66rem;
+	margin-top: 0.22rem;
+}
+
+
+.nav > li > a{
+	padding: 0;
+	line-height: 1rem;
+	height: 1rem;
+	padding-left: 0.5rem;
+	font-size: 18px;
+}
+.nav > li > a.navActive{
+	color: #692407;
+}
+.dropdown-menu{
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+	line-height: 0.46rem;
+	border-top: 2px solid #672307;
+	box-shadow: 0 5px 5px #ccc;
+	left: -0.25rem;
+	font-size: 18px;
+	width: 2.2rem;
+}
+.dropdown-menu li{
+	color: #333333;
+	padding: 0 0.25rem;
+	font-size: 0.16rem;
+}
+.dropdown-menu li:hover{
+	background: #f2f2f2;
+	color: #672307;
+
+}
+
+
+.about{
+	/* background: url('../../images/official/yun.png') right 5rem bottom 2rem/1.22rem 0.68rem no-repeat, url('../../images/official/about_stone.png') right  top 0.58rem/3.62rem 1.18rem no-repeat, url('../../images/official/body_bg.jpg'); */
+	background: #f2f2f2;
+	position: relative;
+}
+.about > span{
+	position: absolute;
+	top: 1.1rem;
+	right: 0;
+	width: 3.62rem;
+}
+.about > div{
+	position: relative;
+	overflow: hidden;
+
+	padding-bottom: 0.5rem; 
+}
+.about > div > div{
+	width: 2rem;
+	height: 3.5rem;
+	background: url('../../images/official/about.png') left/100%  no-repeat;
+	position: relative;
+	float: left;
+	margin-top: 0.8rem;
+}
+.about > div > div > a{
+	font-size: 0.3rem;
+	color: #692407;
+	display: block;
+	width: 0.3rem;
+	line-height: 0.3rem;
+	position: relative;
+	top: 2.2rem;
+	right:0.2rem; 
+}
+.about > div > div > a:hover{
+	text-decoration: none;
+}
+.about > div > ul{
+	float: left;
+	line-height: 0.36rem;
+	margin-top: 1.66rem;
+	margin-left: 0.2rem;
+	color: #333333;
+	font-size: 0.18rem;
+}
+.about > div > em:nth-of-type(1){
+	display: block;
+	width: 2px;
+	height: 2.8rem;
+	background: #692407;
+	position: absolute;
+	bottom: 0.1rem;
+	right: 0.2rem;
+	z-index: 10;
+}
+.about > div > em:nth-of-type(2){
+	display: block;
+	width: 2.8rem;
+	height: 2px;
+	position: absolute;
+	background: #692407;
+	bottom: 0.4rem;
+	right: -0.2rem;
+}
+
+
+.product{
+	padding-top: 0.3rem;
+	/* background: url('../../images/official/xiantiao.png') center/100% no-repeat,url('../../images/official/body_bg.jpg'); */
+	background: #f2f2f2;
+}
+.product .product_title{
+	width: 2.74rem;
+	height: 1.5rem;
+	background: url('../../images/official/title_bg.png') center/100% no-repeat;
+	position: relative;
+}
+.product .product_title p:nth-of-type(1){
+	width: 0.3rem;
+	font-size: 0.3rem;
+	color: #692407;
+	line-height: 0.3rem;
+	position: absolute;
+	left: 1.8rem;
+	top: 0.5rem;
+}
+.product .product_title p:nth-of-type(2){
+	width: 0.24rem;
+	font-size: 0.24rem;
+	color: #692407;
+	line-height: 0.24rem;
+	position: absolute;
+	left: 1.5rem;
+	top: 0.95rem;
+}
+
+
+.product .product_title span{
+	font-size: 0.12rem;
+	width: 2px;
+	display: block;
+	line-height: 0.08rem;
+	word-wrap : break-word ;
+	position: absolute;
+	left: 1.2rem;
+	top: 0.4rem;
+
+}
+
+.product .product_title span i{
+	display: block;
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+
+.product ul{
+	overflow: hidden;
+	margin-top: 0.3rem;
+}
+.product ul li{
+	overflow: hidden;
+}
+.product ul li p{
+	width: 3.66rem;
+	padding: 0;
+	margin-bottom: 0.3rem;
+	float: left;
+	margin-right: 0.3rem;
+	position: relative;
+
+}
+.product ul li p span{
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+.product ul li p span:hover img{
+	transform: scale(1.1)
+}
+.product ul li p:hover em{
+	color: #692407;
+}
+.product ul li p span:hover i{
+	border: 1px solid #fff;
+}
+.product ul li p span img{
+	transition: 1s;
+}
+.product ul li p span i{
+	position: absolute;
+	width: 3.66rem;
+	height: 96%;
+	top: 5px;
+	left: 5px;
+	transition: 1s;
+}
+
+
+.product ul li p em{
+	display: block;
+	color: #333333;
+	font-size: 0.22rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.1rem;
+
+}
+.product ul li p a{
+	display: block;
+	color: #666666;
+	font-size: 0.18rem;
+	height: 0.24rem;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+
+}
+.product ul li p a:hover{
+	text-decoration: none;
+}
+
+.product > div span.btn{
+	display: block;
+	width: 1.5rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	border: 1px solid #c0c0c0;
+	padding: 0;
+	font-size: 0.2rem;
+	color: #666666;
+	border-radius: 5px;
+	background: #ffffff;
+	font-size: 0.16rem;
+}
+
+.health{
+	/* background:url('../../images/official/xiantiao2.png') right bottom 0.3rem /3.14rem 0.44rem no-repeat, url('../../images/official/body_bg.jpg'); */
+	background: #f2f2f2;
+}
+
+.health .product_title{
+	overflow: hidden;
+	display: block;
+}
+
+.health .product_title{
+	width: 2.74rem;
+	height: 1.5rem;
+	background: url('../../images/official/title_bg.png') center/100% no-repeat;
+	position: relative;
+}
+.health .product_title p:nth-of-type(1){
+	width: 0.3rem;
+	font-size: 0.3rem;
+	color: #692407;
+	line-height: 0.3rem;
+	position: absolute;
+	left: 1.8rem;
+	top: 0.5rem;
+}
+.health .product_title p:nth-of-type(2){
+	width: 0.24rem;
+	font-size: 0.24rem;
+	color: #692407;
+	line-height: 0.24rem;
+	position: absolute;
+	left: 1.5rem;
+	top: 0.65rem;
+}
+
+
+.health .product_title span{
+	font-size: 0.12rem;
+	width: 2px;
+	display: block;
+	line-height: 0.08rem;
+	word-wrap : break-word ;
+	position: absolute;
+	left: 1.2rem;
+	top: 0.4rem;
+
+}
+
+.health .product_title span i{
+	display: block;
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	
+}
+.health ul{
+	margin-top: 0.4rem;
+}
+.health ul li{
+	overflow: hidden;
+}
+.health ul li div{
+	width: 48%;
+	padding: 0;
+	margin-bottom: 0.3rem;
+	float: left;
+	position: relative;
+	overflow: hidden;
+
+}
+
+.health ul li div .name{
+	width: 0.52rem;
+	float: right;
+	margin-top: 0.35rem;
+}
+.health ul li div .name i{
+	display: block;
+	width: 0.52rem;
+	height: 2.02rem;
+	background: url('../../images/official/name_bg.png') center/100% no-repeat;
+	overflow: hidden;
+}
+.health ul li div .name i span{
+	display: block;
+	width: 0.28rem;
+	margin-top: 0.6rem;
+	color: #333333;
+	font-size: 0.28rem;
+	text-align: center;
+	line-height: 0.28rem;
+}
+.health ul li div .name em{
+	display: block;
+	width: 0.2rem;
+	color: #692407;
+	font-size: 0.2rem;
+	text-align: center;
+	line-height: 0.2rem;
+	margin-top: 0.1rem;
+}
+.health ul li div b{
+	float: right;
+	color: #333333;
+	font-size: 0.18rem;
+	font-weight: 500;
+	width: 0.18rem;
+	word-wrap:break-word;
+	margin-top: 0.45rem;
+	margin-right: 0.1rem;
+}
+.health ul li div b i{
+	width: 0.12rem;
+	display: block;
+	line-height: 0.16rem;
+}
+.health ul li div p{
+	float: right;
+	font-size: 0.18rem;
+	font-weight: 500;
+	writing-mode:tb-rl;
+	height: 4.6rem;
+	padding-top: 0.45rem;
+}
+
+/*.health ul li div p strong{*/
+	/*float: right;*/
+	/*font-size: 0.18rem;*/
+	/*width: 0.18rem;*/
+	/*font-weight: 500;	*/
+	/*margin: 0.45rem 2px 0;*/
+/*}*/
+
+.health ul li div span.img{
+	float: right;
+	width: 3.20rem;
+	border: 5px solid #89795a;
+	margin-right: 0.1rem;
+}
+
+.health span.btn{
+	display: block;
+	width: 1.5rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	border: 1px solid #c0c0c0;
+	padding: 0;
+	font-size: 0.2rem;
+	color: #666666;
+	border-radius: 5px;
+	background: #ffffff;
+	font-size: 0.16rem;
+}
+
+.moer_shop{
+	/* background:url('../../images/official/xiantiao3.png') left top 1rem /3.94rem 0.58rem no-repeat, url('../../images/official/body_bg.jpg'); */
+	background: #f2f2f2;
+}
+.moer_shop .stone{
+	overflow: hidden;
+	display: block;
+}
+.moer_shop .product_title{
+	overflow: hidden;
+	display: block;
+}
+
+.moer_shop .product_title{
+	width: 2.74rem;
+	height: 1.5rem;
+	background: url('../../images/official/title_bg.png') center/100% no-repeat;
+	position: relative;
+}
+.moer_shop .product_title p:nth-of-type(1){
+	width: 0.3rem;
+	font-size: 0.3rem;
+	color: #692407;
+	line-height: 0.3rem;
+	position: absolute;
+	left: 1.8rem;
+	top: 0.5rem;
+}
+.moer_shop .product_title p:nth-of-type(2){
+	width: 0.24rem;
+	font-size: 0.24rem;
+	color: #692407;
+	line-height: 0.24rem;
+	position: absolute;
+	left: 1.5rem;
+	top: 0.9rem;
+}
+
+
+.moer_shop .product_title span{
+	font-size: 0.12rem;
+	width: 2px;
+	display: block;
+	line-height: 0.08rem;
+	word-wrap : break-word ;
+	position: absolute;
+	left: 1.2rem;
+	top: 0.5rem;
+
+}
+
+.moer_shop .product_title span i{
+	display: block;
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	
+}
+
+
+.moer_shop .shop_img{
+	position: relative;
+	margin-top: 0.3rem;
+	overflow: hidden;
+}
+.moer_shop .shop_img span{
+	overflow: hidden;
+	display: block;
+}
+.moer_shop .shop_img div{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.65);
+	padding: 0.6rem 0.8rem 0.5rem;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.moer_shop .shop_img div p{
+	margin: 0;
+	line-height: 0.3rem;
+	text-align: center;
+	width: 5.4rem;
+	font-size: 0.18rem;
+}
+.moer_shop .shop_img div a{
+	margin-top: 0.2rem;
+	color: #692407;
+	display: block;
+	float: right;
+	background: url('../../images/arrows_right3.png') left 0.05rem/0.21rem 0.16rem no-repeat;
+	padding-left: 0.3rem;
+	position: relative;
+	right: -0.5rem;
+	cursor: pointer;
+}
+.moer_shop .shop_img div a:hover{
+	color: red;
+}
+
+.news{
+	/* background:url('../../images/official/xiantiao3.png') left bottom 1.1rem /3.94rem 0.58rem no-repeat,url('../../images/official/news_stone.png') left bottom 0.2rem/3.94rem 1rem no-repeat, url('../../images/official/body_bg.jpg'); */
+	background: #f2f2f2;
+	padding-top: 0.3rem;
+	padding-bottom: 1.1rem;
+}
+.news .stone{
+	overflow: hidden;
+	display: block;
+}
+.news .product_title{
+	display: block;
+}
+
+.news .product_title{
+	width: 2.74rem;
+	height: 1.5rem;
+	background: url('../../images/official/title_bg.png') center/100% no-repeat;
+	position: relative;
+}
+.news .product_title p:nth-of-type(1){
+	width: 0.3rem;
+	font-size: 0.3rem;
+	color: #692407;
+	line-height: 0.3rem;
+	position: absolute;
+	left: 1.8rem;
+	top: 0.5rem;
+}
+.news .product_title p:nth-of-type(2){
+	width: 0.24rem;
+	font-size: 0.24rem;
+	color: #692407;
+	line-height: 0.24rem;
+	position: absolute;
+	left: 1.5rem;
+	top: 0.9rem;
+}
+
+
+.news .product_title span{
+	font-size: 0.12rem;
+	width: 2px;
+	display: block;
+	line-height: 0.08rem;
+	word-wrap : break-word ;
+	position: absolute;
+	left: 1.2rem;
+	top: 0.4rem;
+
+}
+
+
+.news .product_title span i{
+	display: block;
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	
+}
+
+
+.news ul{
+	margin-top: 0.3rem;
+}
+.news ul li{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	background: #fff;
+	padding: 0.1rem;
+	margin-bottom: 0.3rem;
+}
+.news ul li:nth-of-type(1n){
+	flex-direction: row;
+}
+
+.news ul li:nth-of-type(2n){
+	flex-direction: row-reverse;
+}
+.news ul li span{
+	overflow: hidden;
+	display: block;
+	width: 7.14rem;
+	position: relative;
+}
+.news ul li span i{
+	position: absolute;
+	width: 98%;
+	top: 5px;
+	left: 5px;
+	transition: 1s;
+	height: 96%;
+}
+.news ul li span img{
+	transition: 1s;
+}
+.news ul li:hover span img{
+	transform: scale(1.1)
+}
+.news ul li:hover span i{
+	border: 1px solid #fff;
+}
+
+.news ul li div{
+	margin: 0 0.8rem;
+	text-align: center;
+	color: #666666;
+	flex: 1;
+	margin-top: 2%;
+}
+
+.news ul li:hover div h2{
+	color: #692407;
+}
+.news ul li div h2{
+	font-size: 0.22rem;
+	color: #333333;
+}
+.news ul li div em{
+	display: block;
+	width: 0.76rem;
+	border-bottom: 1px dashed #692407;
+	padding-top: 0.15rem;
+}
+.news ul li div em{
+	display: block;
+	width: 0.76rem;
+	border-bottom: 1px dashed #692407;
+	padding-top: 0.15rem;
+}
+.news ul li div time{
+	padding: 0.15rem 0;
+	display: block;
+	font-size: 0.16rem;
+}
+
+.news ul li div p{
+	font-size: 0.18rem;	
+}
+.news > div span.btn{
+	display: block;
+	width: 1.5rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	border: 1px solid #c0c0c0;
+	padding: 0;
+	font-size: 0.2rem;
+	color: #666666;
+	border-radius: 5px;
+	background: #ffffff;
+	font-size: 0.16rem;
+}
+
+footer{
+	background: #fff;
+	text-align: center;
+	line-height: 46px;
+}
+footer a{
+	color: #666666;
+}
+
+@media (min-width: 750px) and (max-width: 1200px) {
+	.container-fluid{
+		width: 80%;
+	}
+	
+
+
+	.nav > li > a{
+		padding-left: 0.2rem;
+	}
+
+
+	.about > div > ul{
+		float: left;
+		line-height: 0.28rem;
+		margin-top: 1.4rem;
+		width: 60%;
+	}
+
+
+}
+
+@media (max-width: 750px) { 
+
+	.container-fluid{
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.navbar-brand{
+		padding: 0;
+		width: 82px;
+		margin-top: 11px;
+	}
+	.nav{
+		width: 110%;
+		text-align: center;
+	}
+	.nav > li > a{
+		padding: 0;
+		line-height: 40px;
+		font-size: 16px;
+		height: auto;
+	}
+
+	.dropdown-menu{
+		line-height: 30px;
+		left: -16px;
+		font-size: 14px;
+		text-align: center;
+	}
+	.dropdown-menu li{
+		padding: 0 16px;
+	}
+ 	.swiper-pagination span{
+ 		width: 0.22rem;
+ 	}
+	
+	.about{
+		/* background: url('../../images/official/yun.png') right 0.5rem bottom 1.2rem/0.72rem 0.44rem no-repeat, url('../../images/official/about_stone.png') right  top 0.58rem/1.8rem 0.58rem no-repeat,url('../../images/official/body_bg.jpg'); */
+		height: auto;
+		position: static;
+	}
+	.about > span{
+		position: static;
+		top: 0.55rem;
+		right: 0;
+		width: 1.82rem;
+	}
+	.about > div{
+		position: static;
+		overflow: visible;
+		height: auto;
+	}
+	.about > div > div{
+		width: 1.3rem;
+		height: 2.2rem;
+		background: url('../../images/official/about.png') left/100%  no-repeat;
+		position: relative;
+		float: left;
+		margin-top: 0.4rem;
+	}
+	.about > div > div > a{
+		font-size: 0.18rem;
+		color: #692407;
+		display: block;
+		width: 0.2rem;
+		line-height: 0.18rem;
+		position: relative;
+		top: 1.4rem;
+		right:0.1rem; 
+	}
+	.about > div > div > a:hover{
+		text-decoration: none;
+	}
+	.about > div > ul{
+		float: left;
+		line-height: 0.3rem;
+		margin-top: 0.8rem;
+		margin-left: 0.1rem;
+		color: #333333;
+		font-size: 0.12rem;
+		width: 60%;
+	}
+	.about > div > em:nth-of-type(1){
+		display: none;
+	}
+	.about > div > em:nth-of-type(2){
+		display: none;
+	}
+
+
+	.product{
+		padding-top: 0.15rem;
+	}
+	.product ul{
+		overflow: hidden;
+		margin-top: 0.15rem;
+	}
+	.product ul li{
+		overflow: hidden;
+	}
+	.product ul li p{
+		width: 46%;
+		margin-bottom: 0.3rem;
+		margin-right: 0.2rem;
+	}
+	.product ul li p span i{
+		width: 96%;
+		height: 94%;
+		top: 0.05rem;
+		left: 0.05rem;
+	}
+	.product ul li p:nth-of-type(2n){
+		margin-right: 0;
+	}
+
+	.product ul li p em{
+		font-size: 0.16rem;
+		padding-top: 0.1rem;
+		padding-bottom: 0.07rem;
+	}
+	.product ul li p a{
+		font-size: 0.12rem;
+	}
+
+
+
+	.health ul{
+		margin-top: 20px;
+	}
+	.health ul li{
+		overflow: hidden;
+
+	}
+	.health ul li div{
+		width: 300px;
+		padding: 0;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		position: relative;
+		overflow: hidden;
+		float: none;
+	}
+	.health ul li div:nth-of-type(2n) .name{
+		float: right;
+	}
+	.health ul li div .name{
+		width: 32px;
+		float: left;
+		margin-top: 0;
+	}
+	.health ul li div .name i{
+		display: block;
+		width: 22px;
+		height: 102px;
+		background: url('../../images/official/name_bg.png') top/100% no-repeat;
+		overflow: hidden;
+	}
+	.health ul li div .name i span{
+		display: block;
+		width: 22px;
+		margin-top: 22px;
+		color: #333333;
+		font-size: 14px;
+		text-align: center;
+		line-height: 14px;
+	}
+	.health ul li div .name em{
+		display: block;
+		width: 20px;
+		color: #692407;
+		font-size: 12px;
+		text-align: center;
+		line-height: 12px;
+	}
+	.health ul li div:nth-of-type(2n) b{
+		float: right;
+	}
+	.health ul li div b{
+		float: left;
+		color: #333333;
+		font-size: 12px;
+		font-weight: 500;
+		width: 18px;
+		word-wrap:break-word;
+		margin: 0;
+	}
+	.health ul li div b i{
+		width: 10px;
+		display: block;
+		line-height: 12px;
+	}
+
+	.health ul li div:nth-of-type(2n) p{
+		float: right;
+	}
+	.health ul li div p{
+		overflow: hidden;
+		float: left;
+		height: 280px;
+		padding-top: 0;
+		font-size: 12px;
+	}
+	.health ul li div:nth-of-type(2n-1) p{
+		writing-mode:vertical-lr;
+	}
+/*	.health ul li div:nth-of-type(1n) p strong{
+		float: left;
+	}
+	.health ul li div:nth-of-type(2n) p strong{
+		float: right;
+	}
+	.health ul li div p strong{
+		font-size: 12px;
+		width: 14px;
+		font-weight: 500;	
+		margin: 0 1px;
+	}*/
+	.health ul li div:nth-of-type(2n) span.img{
+		float: right;
+		margin-right: 10px;
+	}
+	.health ul li div span.img{
+		float: left;
+		width: 130px;
+		border: 5px solid #89795a;
+		margin-left: 10px;
+	}
+
+	.moer_shop{
+		/* background:url('../../images/official/xiantiao3.png') left top 0.5rem /1.88rem 0.3rem no-repeat, url('../../images/official/body_bg.jpg'); */
+	}
+
+
+	.moer_shop .shop_img{
+		position: relative;
+		margin-top: 0.15rem;
+		overflow: hidden;
+	}
+	.moer_shop .shop_img span{
+		overflow: hidden;
+		display: block;
+	}
+	.moer_shop .shop_img div{
+		position: absolute;
+		background: rgba(255, 255, 255, 0.65);
+		padding: 0.2rem;
+		width: 90%;
+		z-index: 100;
+	}
+	.moer_shop .shop_img div p{
+		
+		font-size: 0.18rem;
+		line-height: 0.3rem;
+		width: 90%;
+		margin: 0 auto;
+	}	
+
+	.moer_shop .shop_img div a{
+		margin-top: 0.1rem;
+		color: #692407;
+		display: block;
+		float: right;
+		background: url('../../images/arrows_right3.png') left 0.04rem/0.18rem 0.13rem no-repeat;
+		padding-left: 0.24rem;
+	}
+
+	.news ul{
+		margin-top: 0.15rem;
+	}
+	.news ul li{
+		padding: 0.05rem;
+		margin-bottom: 0.15rem;
+		display: block;
+	}
+
+	.news ul li span{
+		width: 100%;
+	}
+	.news ul li span i{
+
+		width: 96%;
+
+		height: 92%;
+	}
+	.news ul li div{
+		width: 90%;
+		margin: 0 auto;
+	}
+	/*.news ul li:nth-of-type(2n) div{*/
+		/*margin: 0;*/
+	/*}*/
+
+	.news ul li div h2{
+		font-size: 0.18rem;
+		margin-bottom: 0;
+	}
+	.news ul li div em{
+		width: 0.76rem;
+		padding-top: 0.08rem;
+	}
+	.news ul li div em{
+		width: 0.76rem;
+		padding-top: 0.08rem;
+	}
+	.news ul li div time{
+		padding: 0.08rem 0;
+		display: block;
+	}
+
+	
+	footer{
+		background: #fff;
+		text-align: center;
+		line-height: 0.26rem; 
+	}
+
+}
+
+
+@media (max-width: 360px) {
+	.health ul li div{
+		width: 100%;
+	}
+	.health ul li div span.img{
+		width: 90px;
+	}
+}

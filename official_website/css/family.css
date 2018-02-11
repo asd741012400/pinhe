@@ -1,0 +1,346 @@
+body{
+	font-family: "FangZheng";
+}
+.navbar-default .navbar-nav>li>a:hover{
+	color: #692407;
+}
+.container-fluid{
+	width: 1200px;
+}
+
+.navbar-default{
+	background: #fff;
+	border-bottom: 1px solid #c0c0c0;
+	margin-bottom: 0;
+}
+.navbar-brand{
+	height: auto;
+}
+
+.navbar-brand{
+	padding: 0;
+	width: 1.66rem;
+	margin-top: 0.22rem;
+}
+
+.nav > li > a{
+	padding: 0;
+	line-height: 1rem;
+	height: 1rem;
+	padding-left: 0.5rem;
+	font-size: 18px;
+}
+.nav > li > a.navActive{
+	color: #692407;
+}
+.dropdown-menu{
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+	line-height: 0.46rem;
+	border-top: 2px solid #672307;
+	box-shadow: 0 5px 5px #ccc;
+	left: -0.25rem;
+	font-size: 18px;
+	width: 2.2rem;
+}
+.dropdown-menu li{
+	color: #333333;
+	padding: 0 0.25rem;
+	font-size: 0.16rem;
+}
+.dropdown-menu li:hover{
+	background: #f2f2f2;
+	color: #672307;
+
+}
+
+
+.family_content{
+	/* background:url('../../images/official/light.png') left 0.6rem top/1.86rem  4.16rem no-repeat,url('../../images/official/about_stone.png') right top 4.6rem/3.14rem 1.14rem no-repeat,url('../../images/official/xiantiao2.png') right top 7.4rem/3.04rem 0.6rem no-repeat,url('../../images/official/xiantiao3.png') left top 9rem/3.21rem 0.6rem no-repeat,url('../../images/official/news_stone.png') left bottom/5rem 1.28rem no-repeat,url('../../images/official/yun.png') right 3rem  bottom 2rem/1.48rem 0.7rem no-repeat,url('../../images/official/body_bg.jpg') repeat-y; */
+	background: #f2f2f2;
+	overflow: hidden;
+	padding-bottom: 1.7rem;
+}
+.family_content .decorate{
+	width: 8.98rem;
+	margin-top: 0.5rem;
+	overflow: hidden;
+}
+.family_content .pinhe{
+	width: 3.42rem;
+	overflow: hidden;
+	margin-top: 0.4rem;
+}
+
+
+.family_content ul{
+	margin-top: 0.4rem;
+}
+.family_content ul li{
+	overflow: hidden;
+}
+.family_content ul li div{
+	width: 48%;
+	padding: 0;
+	margin-bottom: 0.3rem;
+	float: left;
+	position: relative;
+	overflow: hidden;
+
+}
+
+.family_content ul li div .name{
+	width: 0.52rem;
+	float: right;
+	margin-top: 0.35rem;
+}
+.family_content ul li div .name i{
+	display: block;
+	width: 0.52rem;
+	height: 2.02rem;
+	background: url('../../images/official/name_bg.png') center/100% no-repeat;
+	overflow: hidden;
+}
+.family_content ul li div .name i span{
+	display: block;
+	width: 0.28rem;
+	margin-top: 0.6rem;
+	color: #333333;
+	font-size: 0.28rem;
+	text-align: center;
+	line-height: 0.28rem;
+}
+.family_content ul li div .name em{
+	display: block;
+	width: 0.2rem;
+	color: #692407;
+	font-size: 0.2rem;
+	text-align: center;
+	line-height: 0.2rem;
+	margin-top: 0.1rem;
+}
+.family_content ul li div b{
+	float: right;
+	color: #333333;
+	font-size: 0.18rem;
+	font-weight: 500;
+	width: 0.18rem;
+	word-wrap:break-word;
+	margin-top: 0.45rem;
+	margin-right: 0.1rem;
+}
+.family_content ul li div b i{
+	width: 0.12rem;
+	display: block;
+	line-height: 0.16rem;
+}
+.family_content ul li div p{
+	float: right;
+	font-size: 0.18rem;
+	font-weight: 500;
+	writing-mode:tb-rl;
+	height: 4.6rem;
+	padding-top: 0.45rem;
+}
+
+
+
+.family_content ul li div span.img{
+	float: right;
+	width: 3.20rem;
+	border: 5px solid #89795a;
+	margin-right: 0.1rem;
+}
+
+
+
+
+footer{
+	background: #fff;
+	text-align: center;
+	line-height: 0.46rem;
+	font-size: 0.16rem;
+}
+footer a{
+	color: #666666;
+}
+
+@media (min-width: 750px) and (max-width: 1200px) {
+	.container-fluid{
+		width: 80%;
+	}
+	
+
+
+	.nav > li > a{
+		padding-left: 0.2rem;
+	}
+
+
+	.about > div > ul{
+		float: left;
+		line-height: 0.28rem;
+		margin-top: 1.4rem;
+		width: 60%;
+	}
+
+
+}
+
+@media (max-width: 750px) { 
+
+	.container-fluid{
+		width: 90%;
+		margin: 0 auto;
+	}
+
+
+	.navbar-brand{
+		padding: 0;
+		width: 82px;
+		margin-top: 11px;
+	}
+	.nav{
+		width: 110%;
+		text-align: center;
+	}
+	.nav > li > a{
+		padding: 0;
+		line-height: 40px;
+		font-size: 16px;
+		height: auto;
+	}
+
+	.dropdown-menu{
+		line-height: 30px;
+		left: -16px;
+		font-size: 14px;
+		text-align: center;
+	}
+	.dropdown-menu li{
+		padding: 0 16px;
+	}
+
+
+	.family_content{
+		/* background:url('../../images/official/light.png') left 0.3rem top/0.94rem  2.08rem no-repeat, url('../../images/official/about_stone.png') right top 6rem/1.84rem 0.64rem no-repeat,url('../../images/official/xiantiao2.png') right top 7rem/1.04rem 0.3rem no-repeat,url('../../images/official/xiantiao3.png') left top 8rem/1.54rem 0.3rem no-repeat,url('../../images/official/news_stone.png') left bottom/2rem 0.58rem no-repeat,url('../../images/official/yun.png') right 0.2rem  bottom 2rem/0.68rem 0.4rem no-repeat,url('../../images/official/body_bg.jpg') repeat-y; */
+		padding-bottom: 0.6rem;
+	}
+
+	.family_content .decorate{
+		width: 4rem;
+		margin-top: 0.24rem;
+	}
+	.family_content .pinhe{
+		width: 2rem;
+		margin-top: 0.2rem;
+	}
+
+	.family_content ul{
+		margin-top: 20px;
+	}
+	.family_content ul li{
+		overflow: hidden;
+
+	}
+	.family_content ul li div{
+		width: 300px;
+		padding: 0;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		position: relative;
+		overflow: hidden;
+		float: none;
+	}
+	.family_content ul li div:nth-of-type(2n) .name{
+		float: right;
+	}
+	.family_content ul li div .name{
+		width: 32px;
+		float: left;
+		margin-top: 0;
+	}
+	.family_content ul li div .name i{
+		display: block;
+		width: 22px;
+		height: 102px;
+		background: url('../../images/official/name_bg.png') top/100% no-repeat;
+		overflow: hidden;
+	}
+	.family_content ul li div .name i span{
+		display: block;
+		width: 22px;
+		margin-top: 22px;
+		color: #333333;
+		font-size: 14px;
+		text-align: center;
+		line-height: 14px;
+	}
+	.family_content ul li div .name em{
+		display: block;
+		width: 20px;
+		color: #692407;
+		font-size: 12px;
+		text-align: center;
+		line-height: 12px;
+	}
+	.family_content ul li div:nth-of-type(2n) b{
+		float: right;
+	}
+	.family_content ul li div b{
+		float: left;
+		color: #333333;
+		font-size: 12px;
+		font-weight: 500;
+		width: 18px;
+		word-wrap:break-word;
+		margin: 0;
+	}
+	.family_content ul li div b i{
+		width: 10px;
+		display: block;
+		line-height: 12px;
+	}
+
+	.family_content ul li div:nth-of-type(2n) p{
+		float: right;
+	}
+
+	.family_content ul li div p{
+		overflow: hidden;
+		float: left;
+		height: 280px;
+		padding-top: 0;
+		font-size: 12px;
+	}
+	.family_content ul li div:nth-of-type(2n-1) p{
+		writing-mode:vertical-lr;
+	}
+	.family_content ul li div:nth-of-type(2n) span.img{
+		float: right;
+		margin-right: 10px;
+	}
+	.family_content ul li div span.img{
+		float: left;
+		width: 130px;
+		border: 5px solid #89795a;
+		margin-left: 10px;
+	}
+
+
+
+	footer{
+		background: #fff;
+		text-align: center;
+		line-height: 0.26rem;
+	} 
+}
+@media (max-width: 360px) {
+	.family_content ul li div{
+		width: 100%;
+	}
+	.family_content ul li div span.img{
+		width: 90px;
+	}
+}

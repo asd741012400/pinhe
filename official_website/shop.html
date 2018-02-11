@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta id="meta" name="viewport" content="width=device-width, initial-scale=1">
+  <title>更多门店</title>
+
+  <link href="../css/common.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/shop.css" rel="stylesheet">
+ 
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#one">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand" id="logo"> <img src="../images/logo.png" alt=""> </a>
+      </div>
+      <div class="collapse navbar-collapse" id="one">
+        <ul class="nav navbar-nav pull-right">
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+<script type="text/javascript">
+
+</script>
+
+
+
+<div class="shop_content">
+  <div class="container-fluid">
+
+    <ul class="shop_list">
+      
+<!--       <li class="shop_list_li">
+  <span>
+    <img src="../images/shop_img.jpg" alt="">
+    <i></i>
+  </span>
+  <div>
+    <h2>品禾</h2>
+    <ul>
+      <li class="c_phone">电话:023-63065368</li>
+      <li>
+        <b class="c_serviceemail">品禾客服邮箱:zengxiaoling@pinhe99.com</b>
+        <b class="c_cooperationemail">品禾商务合作邮箱:liuyunzhu@pinhe99.com</b>
+      </li>
+      <li class="c_address">地址:重庆市两江新区约克郡南郡上景怡景路88号附1号B3-43,44 </li>
+    </ul>
+  </div>
+</li> -->
+    </ul>
+
+  </div>
+</div>
+
+
+<style type="text/css">
+  
+</style>
+
+
+
+<footer><div class="container-fluid">©2017 Baidu 使用品禾前必读 意见反馈 京ICP证030173号  京公网安备11000002000001号 技术支持：<a href="http://shop.zbj.com/114">千问网络</a></div></footer>
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script>
+
+$.ajax({
+  type : "get",
+  url : "http://pinheadmin.qw1000.cn/Web/Index/getStoreArr",
+  success : function( data ){
+ 
+    console.log( data )
+
+    if( data.status == 0 )
+    {
+        $.each( data.data , function(index, val) {
+
+          $('.shop_content > div .shop_list').append(
+            `<li class="shop_list_li" c_id="${val.c_id}">
+                <span>
+                  <img src="${val.c_img}" alt="">
+                  <i></i>
+                  <em>即将开业</em>
+                </span>
+                <div>
+                  <h2>${val.c_shop_name}</h2>
+                  <ul>
+                    <li class="c_phone">电话:${val.c_phone}</li>
+                    <li>
+                      <b class="c_serviceemail">品禾客服邮箱:${val.c_serviceEmail}</b>
+                      <b class="c_cooperationemail">品禾商务合作邮箱:${val.c_cooperationEmail}</b>
+                    </li>
+                    <li class="c_address">地址:${val.c_address} </li>
+                  </ul>
+                </div>
+              </li>`)
+
+        });      
+    }
+
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/family.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem;
+}
+.main header{
+	overflow: hidden;
+}
+.main header ul{
+	width: 2.44rem;
+}
+.main header ul li{
+	width: 3.58rem;
+	height: 3.43rem;
+	background: url('../images/family_title.png') center/100% 100% no-repeat;
+	overflow: hidden;
+	margin-top: 0.3rem;
+}
+.main header ul li p{
+	font-size: 0.2rem;
+	overflow: hidden;
+	margin-top: 1.2rem;
+	width: 0.42rem;
+}
+.main div{
+	margin-top: 1rem;
+}
+.main div ul{
+	position: relative;
+	width: 6.9rem;
+	height: 4.9rem;
+}
+.main div ul li{
+	position: absolute;
+	width: 2.5rem;
+}
+.main div ul li.kinsfolk1{
+	left: 0;
+	text-align: right;
+	top: 0;
+}
+.main div ul li.kinsfolk2{
+	right: 0;
+	text-align: left;
+	top: 0;
+}
+.main div ul li.kinsfolk3{
+	text-align: right;
+	left: 0;
+	bottom: 0;
+}
+.main div ul li.kinsfolk4{
+	right: 0;
+	text-align: left;
+	bottom: 0;
+}
+.main div ul li.my{
+
+
+	top: 50%;
+	margin-top: -0.85rem;
+	text-align: center;
+	width: 100%;
+}
+
+.main div ul li.my h1{
+	margin-top: 0.16rem;
+	margin-bottom: 0.05rem;
+	padding: 0;
+}
+.main div ul li.my span{
+	float: none;
+}
+
+.main div ul li.kinsfolk1 span{
+	float: right;
+}
+.main div ul li.kinsfolk3 span{
+	float: right;
+}
+.main div ul li.kinsfolk2 span{
+	float: left;
+}
+.main div ul li.kinsfolk4 span{
+	float: left;
+}
+.main div ul li span{
+	overflow: hidden;
+	display: block;
+	width: 1.1rem;
+	height: 1.1rem;
+	padding:0 0.1rem;
+	position: relative;
+	z-index: 10;
+}
+
+.main div ul li h1{
+	font-size: 0.3rem;
+	color: #333333;
+	padding-top: 0.25rem;
+}
+.main div ul li p{
+	font-size: 0.22rem;
+	color: #666666;
+}
+.main div ul li em{
+	overflow: hidden;
+	display: block;
+	width: 0.06rem;
+	height: 0.71rem;
+	position: absolute;
+}
+.main div ul li.kinsfolk1 em{
+	bottom: 0rem;
+	right: 0.3rem;
+	transform-origin: bottom right;
+	transform: rotate(135deg);
+}
+.main div ul li.kinsfolk3 em{
+	top: -0.7rem;
+	right: 0.4rem;
+	transform-origin: bottom right;
+	transform: rotate(45deg);
+}
+.main div ul li.kinsfolk2 em{
+	bottom: 0rem;
+	left: 0.3rem;
+	transform-origin: bottom left;
+	transform: rotate(225deg);
+}
+.main div ul li.kinsfolk4 em{
+	top: -0.7rem;
+	left: 0.4rem;
+	transform-origin: bottom left;
+	transform: rotate(-45deg);
+}

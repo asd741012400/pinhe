@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>积分明细</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/integral_particulars.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<ul>
+
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/Integral/getIntegralMingxi" , 'get' , {
+		uid : uId,
+	} , function( data ){
+		
+		console.log( data )
+
+		if( data.status == 0 )
+		{
+			$.each( data.data , function(index, val) {
+				$('.main ul').append(
+					"<li c_id="+val["c_id"]+">"+
+						"<div>"+
+							"<p>"+val["c_info"]+"</p>"+
+							"<time>"+val["c_add_time"]+"</time>"+
+						"</div>"+
+						"<span>"+val["c_amount"]+"</span>"+
+					"</li>"
+				)
+			});
+
+			$('.main ul li').click(function(event) {
+				var c_id = $(this).attr('c_id');
+				window.location.href = "integral_particulars_details.html?c_id="+c_id;
+			});
+
+		}
+		else
+		{
+			$('.main').html( data.msg )
+		}
+	})
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>会员权益</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/equity.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header>
+		<ul>
+			<li><p></p></li>
+		</ul>
+		<h1></h1>
+		<span>有效期<i></i></span>
+	</header>
+	<a class="right" >金卡会员</a>
+	
+	<div class="list">
+		<ul>
+			
+		</ul>
+		<a class="examine">查看完整会员权益</a>
+	</div>
+	<button>购买银卡会员<span>3000</span>(赠送<i>3000</i>积分)</button>
+</div>
+
+<div class="curve"><img src="images/curve.png" alt=""></div>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	var iLevel = sessionStorage.getItem( "level" );
+	// var iLevel = 3;
+
+	// var uId = 89;
+
+
+
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/vip_rights" , "get" , {
+	 	uid : uId,
+	 	level : iLevel,
+	} , function(data){
+		var levelHtml = "";
+		var levelHtml2 = ""
+		var integralHtml = "";
+		var iPrice = "";
+		var liBack = ""
+	 	console.log( data )
+
+	 	if(data.data.vip_level == 0)
+		{
+			levelHtml = "普通会员";
+		}
+		else if(data.data.vip_level == 1)
+		{
+			levelHtml = "福星会员";
+		}
+		else if(data.data.vip_level == 2)
+		{
+			levelHtml = "银卡会员";
+			integralHtml = "品禾银卡会员权益";
+			levelHtml2 = "金卡会员";
+			iPrice = "购买银卡会员<span>￥"+ data.data.c_price +"</span>(赠送<i>"+ data.data.c_integral +"</i>积分)"
+			liBack = "url('images/beans_bg2.png') center/100% 100% no-repeat";
+			
+			if( data.data.u_level >= 2 )
+			{
+				$('.main button').css("background" , "#ccc");
+				$('.main button').attr("disabled","true")
+			}
+
+
+		}
+		else if(data.data.vip_level == 3)
+		{
+			levelHtml = "金卡会员";
+			levelHtml2 = "银卡会员";
+			integralHtml = "品禾金卡会员权益";
+			iPrice = "购买金卡会员<span>￥"+ data.data.c_price +"</span>(赠送<i>"+ data.data.c_integral +"</i>积分)"
+			liBack = "url('images/beans_bg1.png') center/100% 100% no-repeat"
+			if( data.data.u_level == 3 )
+			{
+				$('.main button').css("background" , "#ccc");
+				$('.main button').attr("disabled","true")
+			}
+
+		}
+		$('header ul li').css("background" , liBack)
+		$('header ul li p').html( levelHtml )
+		$('.main a.right').html( levelHtml2 )
+		$('header > h1').html( integralHtml )
+		$('header span i').html( data.data.c_expires )
+
+
+
+		$('button').html( iPrice )
+		
+		var aData = data.data.c_simplify_detail.split("\n");
+		$.each( aData , function(index, val) {
+		 	
+			$('.list ul').append('<li>'+ val +'</li>')
+
+		});
+
+		$('button').click(function(event) {
+			if ( levelHtml == "银卡会员" )
+			{
+				window.location.href = "upgrade.html?url=yin";
+			}
+			else if ( levelHtml == "金卡会员" )
+			{
+				window.location.href = "upgrade.html?url=jin";
+			}
+		});
+
+	})	
+
+
+	$('.main a.right').click(function(){
+		if( $(this).html() == "金卡会员" )
+		{
+			$(this).attr( "data-level" , "3" );
+		}
+		else if( $(this).html() == "银卡会员" )
+		{
+			$(this).attr( "data-level" , "2" );
+		}
+		sessionStorage.level = $(this).attr( "data-level" );
+		history.go(0); 
+	})
+
+
+	$('.examine').click(function(event) {
+		// var level = 
+		if( $('header ul li p').html() == "金卡会员" )
+		{
+			sessionStorage.level = 3;
+		}
+		else if( $('header ul li p').html() == "银卡会员" )
+		{
+			sessionStorage.level = 2;
+		}
+
+		window.location.href = "equity_details.html";
+	});
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

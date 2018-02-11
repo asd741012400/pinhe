@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="js/datePicker.js"></script>
+</head>
+<body>
+	
+
+<button id="demo1">日历</button>
+
+
+<script type="text/javascript">
+var calendar = new datePicker(); 
+calendar.init({ 
+	'trigger':'#demo1',//  按钮选择器，用于触发弹出插件 
+	'type':'date',//  模式：date日期; 日期时间日期时间; 时间时间; ym年月 
+	'minDate':'1900-1-1',// 最小日期 
+	'maxDate':'2100-12-31',//最大日期  
+	'onSubmit':function(){//  确认时触发事件 
+		var theSelectData = calendar.value; 
+		alert( theSelectData )
+	},
+	'onClose':function(){// 取消时触发事件 
+	}
+});
+</script>
+
+
+</body>
+</html>

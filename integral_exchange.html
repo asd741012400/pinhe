@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>积分兑换码</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/integral_exchange.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<div class="product"><img src="images/product2.jpg" alt=""></div>
+	<h1></h1>
+	<h2><span></span>积分</h2>
+	<div class="exchange_code">
+		<a>兑换码</a>
+		<span></span>
+	</div>
+	<div class="exchange">
+		<span>兑换方式</span>
+		<b>到店自提</b>
+	</div>
+	<h3>兑换地址</h3>
+	
+	<div class="address">
+		
+	</div>
+
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+	Request = GetRequest();
+	var c_id = Request["c_id"];
+	// console.log(c_id)
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/Integral/getRedeemCode" , "get" , {
+		uid : uId,
+		id : c_id
+	} ,function( data ){
+		if ( data.status == 0 ) 
+		{
+			$('.product img').attr("src" , data.data.c_image );
+			$('h1').html(data.data.c_integral_name)
+			$('h2 span').html(data.data.c_need_integral)
+			$('.exchange_code span').html(data.data.c_redeem_code);
+
+			console.log( data.address )
+			$.each( data.address , function(index, val) {
+				
+				$('.address').append(`
+					<ul c_id='${val.c_id}'>
+						<li><b>${val.c_shop_name}</b></li>
+						<li><i>${val.c_address}</i></li>
+						<li><em>${val.c_phone}</em></li>
+					</ul>`)
+
+			});
+
+		}
+		else
+		{
+			console.log(data.msg)
+		}
+		console.log( data )
+	})
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

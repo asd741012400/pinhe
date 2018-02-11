@@ -1,0 +1,95 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/integral_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem 0;
+	overflow: scroll;
+}
+
+.main .product{
+	width: 4.64rem;
+	margin-top: 0.44rem;
+	overflow: hidden;
+}
+
+.main h1{
+	width: 4.38rem;
+	height: 0.58rem;
+	line-height: 0.58rem;
+	background: url('../images/integral_h.png') center/100% 100% no-repeat;
+	font-size: 0.3rem;
+	color: #333333;
+	text-align: center;
+	margin-top: 0.3rem;
+	font-weight: bold;
+}
+.main h2{
+	text-align: center;
+	font-size: 0.3rem;
+	font-weight: bold;
+	color: #666666;
+}
+.main h2 span{
+	color: #f03e3e;
+	line-height: 0.72rem;
+	letter-spacing: 1px;
+}
+.main .exchange{
+	padding-top: 0.5rem;
+	width: 4.38rem;
+}
+.main .exchange span{
+	display: block;
+	color: #333333;
+	font-size: 0.24rem;
+}
+.main .exchange b{
+	display: block;
+	color: #692407;
+	font-size: 0.3rem;
+	margin-top: 0.2rem;
+	border-bottom: 1px solid #c0c0c0;
+	padding-bottom: 0.1rem
+}
+.main ul{
+	width: 4.38rem;
+}
+.main ul li span{
+	font-size: 0.24rem;
+	color: #333333;
+	line-height: 0.6rem;
+	display: block;
+}
+.main ul li b{
+	font-size: 0.3rem;
+	color: #692407;
+	display: block;
+	line-height: 0.5rem;
+}
+.main ul li i{
+	font-size: 0.24rem;
+	color: #666666;
+	display: block;
+}
+.main ul li em{
+	font-size: 0.28rem;
+	color: #333333;
+	display: block;
+}
+.main a.btn{
+	display: block;
+	width: 100%;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #fff;
+	background: #692407;
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 0.7rem;
+	margin-bottom: 0.3rem
+}

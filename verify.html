@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>填写资料</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/verify.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<style type="text/css">
+	
+</style>
+<body>
+	
+<div class="main">
+	<h1><img src="images/verify_banner.png" alt=""></h1>
+	<ul>
+		<li>
+			<p><input type="text" class="phone" data-val="请输入手机号码" value="请输入手机号码"></p>
+			<span class="get_verify">获取验证码</span>
+		</li>
+		<li><p><input type="text" class="note" data-val="请输入验证码" value="请输入验证码"></p></li>
+		<li><p><input type="text" class="username" data-val="请填写姓名" value="请填写姓名"></p></li>
+		<li><p><input type="text" class="site" data-val="请填写家庭住址" value="请填写家庭住址"></p></li>
+	</ul>
+	<a class="user highlight">点击"完成"同意<span>《品禾用户协议》</span></a>
+	<div><button>完成</button></div>
+</div>
+<div class="pop_up">
+	<div>
+		<p>恭喜您,您已经成为福星会员</p>
+		<span><img src="images/QR_code.png" alt=""></span>
+		<b>长按二维码关注品禾公众号</b>
+		<b>获得更多养生服务</b>
+		<!-- <em><img src="images/close.png" alt=""></em> -->
+	</div>
+	<div style="display: block;">
+		<p>恭喜您,您已经成为普通会员</p>
+		<span><img src="images/QR_code.jpg" alt=""></span>
+		<b>长按二维码关注品禾俱乐部</b>
+		<b>进入会员中心查看奖品详情</b>
+		<!-- <em><img src="images/close.png" alt=""></em> -->
+	</div>
+</div>
+<div class="hint">
+	<div class="hint_restart">
+	</div>
+</div>
+
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+$('.user span').bind("click",function(){
+
+	window.location.href = "user_agreement.html";
+
+
+})
+
+changeClick()
+
+
+/*验证码信息*/
+	
+var oTimer = null;
+var bOn = true;
+$('.get_verify').bind('click',function(){
+
+	if( bOn ){
+		bOn = false;
+		clearInterval(oTimer)
+		var num = 60;
+		$('.get_verify').text("("+num+"s)已发送")
+		$('.get_verify').css("background" , "#cccccc")
+
+		oTimer = setInterval(function(){
+			num--;
+			$('.get_verify').text("("+num+"s)已发送")
+			if(num <= 0)
+			{
+				num = 60;
+				bOn = true;
+				$('.get_verify').text("获取验证码")
+				$('.get_verify').css("background" , "#efbd21")
+				clearInterval(oTimer)
+			}
+		},1000)
+
+		
+			$.ajax({
+				url : "http://pinheadmin.qw1000.cn/Home/Sms/send",
+				type : "post",
+				// dataType : "jsonp",
+				// jsonp : "callback",
+				data : {
+					c_tel : $('input.phone').val()
+				},
+				success : function( data ){
+					if( data.status ){
+						alert( data.info )
+						bOn = true;
+						$('.get_verify').text("获取验证码")
+						$('.get_verify').css("background" , "#efbd21")
+						clearInterval(oTimer)
+					}
+					else{
+						console.log(data.info);		
+					}
+				},
+				error : function(){
+					console.log( "NO" )
+				}
+			})
+		}
+		
+
+
+	
+})	
+
+
+var uId = localStorage.getItem( "c_userid");
+var sId = localStorage.getItem( "c_staffid");
+var getNum = parseInt(sessionStorage.getItem( "getNum" ));
+var getSite = sessionStorage.getItem( "getSite" );
+
+/*监听input内容不为空，完成按钮才可以点击提交数据*/
+
+var bFlase = false;
+$('input').bind('input propertychange' , function(event){
+	changeClick()
+});
+
+function changeClick(){
+
+
+	if( ($('input.phone').val() != "" && $('input.phone').val() != "请输入手机号码")&& ( $('input.username').val() != "" && $('input.username').val() != "请填写姓名" ) && ( $('input.site').val() != "" && $('input.site').val() != "请填写家庭住址" ) && ( $('input.note').val() != "" && $('input.note').val() != "请输入验证码" ))
+	{
+		$('.main div button').css("background" , "#f03e3e");
+		bFlase = true;
+	}
+	else
+	{
+		$('.main button').css("background" , "#cccccc");
+		bFlase = false;
+	}
+
+
+}
+
+$('.main div button').click(function(event) {
+	if( bFlase ){
+
+		$.ajax({
+			url : "http://pinheadmin.qw1000.cn/Home/Sms/getaward",
+			type : "post",
+			data : {
+				c_userid : uId,
+				c_staffid : sId,
+				c_tel : $('input.phone').val(),
+				c_username : $('input.username').val(),
+				c_address : $('input.site').val(),
+				code : $('input.note').val(),
+				c_awardid : getNum
+			},
+			success : function( data ){
+				if( data.status == 0 ){
+					$(".pop_up").show();
+					$(".pop_up").animate({'opacity' : 1 }, 500);
+					if( getSite == "true" )
+					{
+						$(".pop_up div").eq(0).show();	
+					}
+					else if( getSite == "false" )
+					{
+						$(".pop_up div").eq(1).show();	
+					}
+				}
+				else
+				{
+					$('.hint_restart').html( data.info )
+					toShow('.hint_restart')
+					toHide();
+				}
+			},
+			error : function(){
+				console.log( "NO" )
+			}
+		})
+	}
+
+});
+$(".pop_up div").click(function(event) {
+	event.stopPropagation();
+	$(".pop_up").show()
+	$(".pop_up").animate({'opacity' : 1 }, 500)
+});
+
+
+
+/*输入框val清空*/
+$('input').bind( "click" ,function(){
+	$(this).val("");
+})
+$('input').bind( "blur" ,function(){
+	if($(this).val() == "")
+	{
+		$(this).val($(this).attr('data-val'));
+	}
+})
+
+</script>
+
+
+</body>
+</html>

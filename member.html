@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>会员中心</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/member.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<div class="message">
+		<div class="message_left" onclick="window.location.href = 'perfect.html'">
+			<div>
+				<b><img class="c_avatar" /></b>
+				<span class="level">普通会员</span>
+			</div>
+			<ul>
+				<li class="c_nickname"></li>
+				<li>ID：<i class="c_id"></i></li>
+			</ul>
+		</div>
+		<div class="message_right"><span class="upgrade">升级会员</span></div>
+	</div>
+	<div class="message_list">
+		<ul>
+			<li class="hint_message" data-chage="beans">
+				<a>健康豆</a>
+				<span><i class="c_amount">0</i>颗</span>
+			</li>
+			<li class="hint_message" data-chage="integral">
+				<a>积分</a>
+				<span><i class="c_integral">0</i>分</span>
+			</li>
+			<li data-href="my_member">
+				<a>我的会员</a>
+				<span></span>
+			</li>
+			<li class="crown" data-href="equity">
+				<a>会员权益</a>
+				<span></span>
+			</li>
+			<li  data-href="physique">
+				<a>我的体质</a>
+				<span></span>
+			</li>
+			<li data-href="health">
+				<a>我的健康管理师</a>
+				<span></span>
+			</li>
+			<li data-href="my_family">
+				<a>我的家庭</a>
+				<span></span>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="hint">
+	<div class="hint_message">
+		<span></span>
+		<div>
+			<p>您暂未完善个人资料</p>
+			<p>请尽快去完善</p>
+			<a href="perfect.html">马上去完善</a>
+		</div>
+	</div>
+	<div class="hint_beans">
+		<span></span>
+		<div>
+			<p>您暂未进行会员升级</p>
+			<p>请去升级得健康豆</p>
+			<a href="upgrade.html?url=member">马上去升级</a>
+		</div>
+	</div>
+	<div class="hint_integral">
+		<span></span>
+		<div>
+			<p>您暂未进行会员升级</p>
+			<p>请去升级得积分</p>
+			<a href="upgrade.html?url=member">马上去升级</a>
+		</div>
+	</div>
+
+
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+var Request = new Object();
+Request = GetRequest();
+var uId = Request["uid"];
+sessionStorage.uId = uId;
+
+$(function(){
+
+
+
+	if( uId == undefined ){
+		window.location.href = "http://pinheadmin.qw1000.cn/Home/Wechat/entry";
+	}
+
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/get_info" , "get" , {
+		uid : uId
+	} ,function( data ){
+		//判断是否完成个人信息录入
+		console.log(data)
+		if (data.judge == 0)
+		{
+			//已完成个人信息录入
+			if(data.info.c_level >= 2)
+			{
+				$('.message_list ul li.hint_message').bind('click',function(){
+					// alert("暂时没有页面")
+					window.location.href = $(this).attr('data-chage') + '.html';
+				})
+				$('.message_right .upgrade').bind('click',function(){
+					
+					window.location.href = 'renew.html';
+				})
+			}	
+			else
+			{
+				$('.message_list ul li.hint_message').bind('click',function(){
+					var cName = '.hint_' + $(this).attr("data-chage");
+					toShow(cName);
+				})
+
+				$('.message_right .upgrade').bind('click',function(){
+					window.location.href = 'upgrade.html?url=member';
+				})
+			}
+			for (var i = 2; i < $('.message_list ul li').length; i++) {
+				$('.message_list ul li').eq(i).click(function(event) {
+
+					window.location.href = $(this).attr('data-href') + '.html';
+				});
+			}
+
+
+
+		}
+		else
+		{
+			//未完成个人信息录入
+			$('.message_list ul li').bind('click',function(){
+				toShow('.hint_message')
+			})
+
+			$('.message_right').bind('click',function(){
+				toShow('.hint_message');
+			})
+			toShow('.hint_message');
+
+		}
+
+		//赋值
+		$.each( data.info , function(index, val) {
+
+			if(index != 'c_avatar')
+			{
+				addHTML( $('.'+index) , val );
+			}
+		});
+		$('.c_avatar').attr('src' , data.info.c_avatar)
+
+	} )
+
+
+})
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

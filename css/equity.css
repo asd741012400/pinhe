@@ -1,0 +1,107 @@
+html,body{
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+.main{
+	font-family: "FangZheng";
+	height: 100%;
+	background: url('../images/myMember_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem;
+	overflow: scroll;
+}
+.main .right{
+	position: absolute;
+	right: 0.24rem;
+	top: 0.24rem;
+	font-size: 0.24rem;
+	color: #333333;
+	width: 0.57rem;
+	border-bottom: 1px solid #692407;
+	text-align: center;
+	line-height: 0.3rem;
+	padding-bottom: 0.05rem
+}
+.main header{
+	overflow: hidden;
+}
+.main header ul{
+	width: 2.44rem;
+}
+.main header ul li{
+	width: 3.58rem;
+	height: 3.43rem;
+	overflow: hidden;
+	margin-top: 0.3rem;
+}
+.main header ul li p{
+	overflow: hidden;
+	margin-top: 1.2rem;
+	width: 0.42rem;
+	font-family: 'HuiYuan';
+	font-size: 0.46rem;
+	position: relative;
+	right: 0.2rem;
+}
+.main header h1{
+	text-align: center;
+	font-size: 0.3rem;
+	color: #333333;
+	font-weight: 500;
+	margin-top: 0.4rem;
+}
+.main header span{
+	color:#999999;
+	font-size: 0.24rem;
+	display: block;
+	text-align: center;
+	margin-top: 0.1rem;
+}
+.main header span i{
+	font-style: normal;
+	margin-left: 0.1rem;
+}
+.main div ul{
+	padding: 0.6rem 0.36rem 0;
+}
+.main div ul li{
+	font-size: 0.28rem;
+	color: #333333;
+	border-bottom: 1px solid #ae8b7c;
+	line-height: 0.56rem;
+}
+.main div a.examine{
+	font-size: 0.24rem;
+	color: #692407;
+	display: block;
+	text-align: center;
+	padding: 0.3rem 0;
+}
+.main button{
+	color: #fff;
+	background: #692407;
+	font-size: 0.3rem;
+	display: block;
+	width: 100%;
+	line-height: 0.8rem;
+	border: 0;
+	border-radius: 3px; 
+	margin-top: 0.2rem;
+	margin-bottom: 0.5rem;
+	font-family: "FangZheng";
+	position: relative;
+	z-index: 2;
+}
+.main button span{
+	padding: 0 0.1rem;
+}
+.main button           i{
+	font-style: normal;
+}
+.curve{
+	position: absolute;
+	bottom: 1.8rem;
+	width: 2.57rem;
+	right: 0rem;
+}

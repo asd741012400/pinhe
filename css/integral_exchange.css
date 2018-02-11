@@ -1,0 +1,117 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/integral_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem 0;
+	overflow: scroll;
+}
+
+.main .product{
+	width: 4.64rem;
+	margin-top: 0.44rem;
+	overflow: hidden;
+}
+
+.main h1{
+	width: 4.38rem;
+	height: 0.58rem;
+	line-height: 0.58rem;
+	background: url('../images/integral_h.png') center/100% 100% no-repeat;
+	font-size: 0.3rem;
+	color: #333333;
+	text-align: center;
+	margin-top: 0.3rem;
+	font-weight: bold;
+}
+.main h2{
+	text-align: center;
+	font-size: 0.3rem;
+	font-weight: bold;
+	color: #666666;
+}
+.main h2 span{
+	color: #f03e3e;
+	line-height: 0.72rem;
+	letter-spacing: 1px;
+}
+
+.main .exchange_code{  
+	border-radius: 3px;
+	overflow: hidden; 
+	line-height: 0.62rem;
+	height: 0.6rem;
+	width: 4.64rem;
+	border: 1px solid #692407;
+	margin-top: 0.2rem;
+}
+.main .exchange_code a{
+	background: #692407;
+	color: #fff;
+	font-size: 0.3rem;
+	text-align: center;
+	float: left;
+	width: 1.4rem;
+	height: 100%;
+}
+.main .exchange_code span{
+	color: #692407;
+	font-size: 0.3rem;
+	font-weight: bold;
+	text-align: center;
+	float: left;
+	height: 100%;
+	width: 3.24rem;
+}
+.main .exchange{
+	padding-top: 0.5rem;
+	width: 4.38rem;
+}
+.main .exchange span{
+	display: block;
+	color: #333333;
+	font-size: 0.24rem;
+}
+.main .exchange b{
+	display: block;
+	color: #692407;
+	font-size: 0.3rem;
+	margin-top: 0.2rem;
+	border-bottom: 1px solid #c0c0c0;
+	padding-bottom: 0.1rem
+}
+
+h3{
+	width: 4.38rem;
+	font-size: 0.24rem;
+	color: #333333;
+	line-height: 0.6rem;
+	display: block;
+}
+.main .address{
+	padding-bottom: 1rem;
+}
+.main .address ul{
+	width: 4.38rem;
+	margin-bottom: 0.2rem;
+}
+.main .address ul li b{
+	font-size: 0.3rem;
+	color: #692407;
+	display: block;
+	line-height: 0.5rem;
+}
+.main .address ul li i{
+	font-size: 0.24rem;
+	color: #666666;
+	display: block;
+}
+.main .address ul li em{
+	font-size: 0.28rem;
+	color: #333333;
+	display: block;
+}

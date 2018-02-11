@@ -1,0 +1,249 @@
+body{
+	font-family: "FangZheng";
+}
+.navbar-default .navbar-nav>li>a:hover{
+	color: #692407;
+}
+.container-fluid{
+	width: 1200px;
+}
+
+.navbar-default{
+	background: #fff;
+	border-bottom: 1px solid #c0c0c0;
+	margin-bottom: 0;
+}
+.navbar-brand{
+	height: auto;
+}
+
+.navbar-brand{
+	padding: 0;
+	width: 1.66rem;
+	margin-top: 0.22rem;
+}
+
+.nav > li > a{
+	padding: 0;
+	line-height: 1rem;
+	height: 1rem;
+	padding-left: 0.5rem;
+	font-size: 18px;
+}
+.nav > li > a.navActive{
+	color: #692407;
+}
+.dropdown-menu{
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+	line-height: 0.46rem;
+	border-top: 2px solid #672307;
+	box-shadow: 0 5px 5px #ccc;
+	left: -0.25rem;
+	font-size: 18px;
+	width: 2.2rem;
+}
+.dropdown-menu li{
+	color: #333333;
+	padding: 0 0.25rem;
+	font-size: 0.16rem;
+}
+.dropdown-menu li:hover{
+	background: #f2f2f2;
+	color: #672307;
+
+}
+
+
+.product_content{
+	background: #f2f2f2;
+	/* background: url('../../images/official/about_stone.png') right top 4.6rem/3.14rem 1.14rem no-repeat,url('../../images/official/xiantiao2.png') right top 7.4rem/3.04rem 0.6rem no-repeat,url('../../images/official/xiantiao3.png') left top 9rem/3.21rem 0.6rem no-repeat,url('../../images/official/news_stone.png') left bottom/5rem 1.28rem no-repeat,url('../../images/official/body_bg.jpg') repeat-y; */
+	overflow: hidden;
+	padding-bottom: 1.7rem;
+}
+.product_content .product_title{
+	padding: 0.3rem 0;	
+	overflow: hidden;
+}
+
+.product_content .product_title p{
+	padding: 0.06rem 0.18rem;
+	margin-right: 0.3rem;
+	border-radius: 5px;
+	color: #333333;
+	border: 1px solid #c0c0c0;
+	background: #fff;
+	font-size: 0.2rem;
+	float: left;
+	cursor: pointer;
+}
+.product_content .product_title p.active{
+	border: 1px solid #692407;
+	color: #692407;
+}
+
+.product_details > div{
+	overflow: hidden;
+	display: -none;
+}
+.product_details > div p{
+	float: left;
+	width: 3.88rem;
+	margin-right: 0.18rem;
+	margin-bottom: 0.3rem;
+	font-size: 0.16rem;
+}
+
+.product_details > div p span{
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+.product_details > div p span img{
+    transition: 1s;
+}
+.product_details > div p span:hover img{
+	transform: scale(1.1)
+}
+.product_details > div p span:hover i{
+	border: 1px solid #fff;
+}
+.product_details > div p:hover em{
+	color: #692407;
+}
+
+.product_details > div p span i{
+	position: absolute;
+    width: 96%;
+    height: 96%;
+    top: 5px;
+    left: 5px;
+    transition: 1s;
+}
+.product_details > div p em{
+	display: block;
+	color: #333333;
+	font-size: 0.22rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.14rem;
+}
+.product_details > div p a{
+	display: block;
+	color: #666666;
+	font-size: 0.18rem;
+	height: 0.24rem;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.product_details > div p a:hover{
+	text-decoration: none;
+}
+
+
+
+footer{
+	background: #fff;
+	text-align: center;
+	line-height: 0.46rem;
+	font-size: 0.16rem;
+}
+footer a{
+	color: #666666;
+}
+
+@media (min-width: 750px) and (max-width: 1200px) {
+	.container-fluid{
+		width: 80%;
+	}
+	
+
+
+	.nav > li > a{
+		padding-left: 0.2rem;
+	}
+
+
+	.about > div > ul{
+		float: left;
+		line-height: 0.28rem;
+		margin-top: 1.4rem;
+		width: 60%;
+	}
+
+
+}
+
+@media (max-width: 750px) { 
+
+	.container-fluid{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.navbar-brand{
+		padding: 0;
+		width: 82px;
+		margin-top: 11px;
+	}
+	.nav{
+		width: 110%;
+		text-align: center;
+	}
+	.nav > li > a{
+		padding: 0;
+		line-height: 40px;
+		font-size: 16px;
+		height: auto;
+	}
+
+	.dropdown-menu{
+		line-height: 30px;
+		left: -16px;
+		font-size: 14px;
+		text-align: center;
+	}
+	.dropdown-menu li{
+		padding: 0 16px;
+	}
+
+
+	.product_content{
+		/* background: url('../../images/official/about_stone.png') right top 6rem/1.84rem 0.64rem no-repeat,url('../../images/official/xiantiao2.png') right top 7rem/1.04rem 0.3rem no-repeat,url('../../images/official/xiantiao3.png') left top 8rem/1.54rem 0.3rem no-repeat,url('../../images/official/news_stone.png') left bottom/2rem 0.58rem no-repeat,url('../../images/official/body_bg.jpg') repeat-y; */
+		padding-bottom: 0.6rem;
+	}
+
+	.product_content .product_title{
+		padding: 0.15rem 0;	
+	}
+
+	.product_content .product_title p{
+		padding: 0.06rem 0.16rem;
+		margin: 0 0.02rem 0.1rem 0.15rem;
+	}
+	.product_details > div p{
+		width: 44%;
+		margin:0 0.15rem 0.15rem;
+	}
+
+	.product_details > div p span i{
+	    width: 92%;
+	    height: 90%;
+	}
+	.product_details > div p em{
+
+		font-size: 0.2rem;
+		padding-top: 0.1rem;
+		padding-bottom: 0.07rem;
+	}
+	.product_details > div p a{
+		font-size: 0.16rem;
+	}
+
+
+	footer{
+		background: #fff;
+		text-align: center;
+		line-height: 0.26rem;
+	} 
+}

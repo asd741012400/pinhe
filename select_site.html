@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>选择地址</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/select_site.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+</head>
+<style type="text/css">
+html,body{
+	height: 100%;
+}	
+</style>
+<body>
+	
+
+<div class="main">
+	<div><img src="images/banner.jpg" alt=""></div>
+	<h1>请选择小区</h1>
+	<ul>
+		<li data-opt='false' data-site="true" data-num="1">
+			<a>约克郡</a>
+			<span></span>
+		</li>
+		<li data-opt='false' data-site="true" data-num="1">
+			<a>玥湖园</a>
+			<span></span>
+		</li>
+		<li data-opt='false' data-site="true" data-num="1">
+			<a>万科城</a>
+			<span></span>
+		</li>
+		<li data-opt='false' data-site="true" data-num="1">
+			<a>象屿两江公元</a>
+			<span></span>
+		</li>
+		<li data-opt='false' data-site="true" data-num="1">
+			<a>建工依山郡</a>
+			<span></span>
+		</li>
+		<li data-opt='false' data-site="true" data-num="1">
+			<a>华宇上院</a>
+			<span></span>
+		</li>
+		<li data-opt='false' data-site="true" data-num="1">
+			<a>万科颐府</a>
+			<span></span>
+		</li>
+		<li data-opt='false' data-site="false" data-num="4">
+			<a>其他</a>
+			<span></span>
+		</li>
+	</ul>
+	<p><button>下一步</button></p>
+</div>
+
+<div class="popup">
+	<p></p>
+	<span>请先选择小区或其他选项</span>	
+</div>
+
+
+
+<script type="text/javascript">
+
+
+//单选切换
+$('.main ul li').bind('click', function(event) {
+	$(this).attr("data-opt", "true").siblings('li').attr("data-opt", "false");
+	$('.main ul li span').removeClass('active');
+	$(this).find('span').addClass('active');
+});
+
+//进入游戏
+$('button').bind('click', function(event) {
+	if( $('.main ul li').eq(0).attr('data-opt') == "false" &&  $('.main ul li').eq(1).attr('data-opt') == "false" &&  $('.main ul li').eq(2).attr('data-opt') == "false" &&  $('.main ul li').eq(3).attr('data-opt') == "false" &&  $('.main ul li').eq(4).attr('data-opt') == "false" )
+	{
+		$('.popup').show();
+		$('.popup').animate({"opacity" : 1}, 1000);
+
+		setTimeout(function(){
+			$('.popup').animate({"opacity" : 0}, 300,function(){
+				$('.popup').hide();
+			});
+			
+		},2000)
+
+	}
+	$.each( $('.main ul li'), function(index, val) {
+		if($(this).attr('data-opt') == "true")
+		{
+			window.location.href = "smash_eggs.html";
+			sessionStorage.getSite =  $(this).attr("data-site");
+			sessionStorage.getNum =  $(this).attr("data-num");
+		}
+	});
+});	
+
+
+
+//弹出居中
+toCenter( $('.popup') , "top" , $(window) )
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>测试结果</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/physique.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+
+<div class="main">
+	<header><img src="images/health.jpg" alt=""></header>
+	<h1>
+		<span>您的体质为：</span>
+		<a></a>
+		<b></b>
+	</h1>
+	<div class="content">
+		<div>
+			<h2></h2>
+			<ul>
+
+			</ul>
+		</div>
+		<p class="c_diet">饮食适宜：<span></span></p>
+		<p class="c_tiaoyang">调养方式：<span></span></p>
+	</div>
+	<button>点击查看品禾养生套餐</button>
+</div>
+
+<div class="hint">
+	<div class="hint_restart">
+	</div>
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 46;
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/my_con" , "get" , {
+		uid : uId,
+	} , function( data ){
+		console.log( data )
+		if( data.status == 0 )
+		{
+			
+			var arr = "";
+			console.log(data);
+			$(".main h1 a").html(data.data.c_title)
+			var h2Title = data.data.c_title.split('');
+			console.log(h2Title);
+			$.each( h2Title, function(index, val) {
+
+				if( index == h2Title.length-1 )
+				{
+					arr +=  '<i>'+ val +'</i>'
+				}
+				else
+				{
+					arr +=  '<i>'+ val +'</i>' + '<span>|</span>';
+				}
+
+			});
+			$('h2').html(arr);
+
+
+			var aData = data.data.c_con.split("\n");
+			console.log( aData )
+			$.each( aData , function(index, val) {
+			 	
+				$('.content div ul').append('<li>'+ val +'</li>')
+
+			});
+
+			$('.c_diet span').html( data.data.c_diet )
+			$('.c_tiaoyang span').html( data.data.c_tiaoyang )
+			$('.main button').attr("c_cateid",data.data.c_cateid)
+
+		}
+		else
+		{
+
+			$('.hint_restart').html( "请到店测试体质" )
+			toShow('.hint_restart' )
+			toHide( );
+			$('.content').html("")
+			$('button').html("")
+
+		}
+
+	} )
+
+})
+
+
+$('.main button').click(function(event) {
+	sessionStorage.c_cateid = $(this).attr("c_cateid");
+	window.location.href = "product.html";
+});
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

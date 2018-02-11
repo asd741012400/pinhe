@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>九大体质介绍</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/corporeity_details.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<div class="banner"><img src="" alt=""></div>
+	<div class="habitus_content">
+		<div class="introduce">
+			<span>体质特征</span>
+			<a>点击查看<i></i></a>
+		</div>
+		<div class="introduce_list"> 
+			<ul>
+				
+			</ul>
+		</div>
+		<div class="everyday">
+			<h2>日常注意</h2>
+			<p></p>
+		</div>
+		<div class="aftercare">
+			<h2>调养方式</h2>
+			<p></p>
+		</div>
+	</div>
+</div>
+
+<style>
+
+</style>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+
+$(function(){
+	Request = GetRequest();
+	var id = Request["id"];
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/Introduce/getConDetail" ,"get" ,{
+		id : id 
+	},function(data){
+
+		if( data.status == 0 ){
+
+			$('.banner img').attr("src" , data.data.c_image )
+			$('.introduce a i').html( data.data.c_con_name + "套餐" )
+			$('.introduce a').attr("c_cateid" , data.data.c_cateid)
+
+			$('.introduce a').click(function(event) {
+				sessionStorage.c_cateid = $(this).attr("c_cateid");
+				window.location.href = "product.html";
+			});
+
+			
+			var introduceListHtml = data.data.c_characteristic.split("\n");
+			$.each( introduceListHtml , function(index, val) {
+				$('.introduce_list ul').append(`<li>${val}</li>`)
+			});
+
+				$('.everyday p').html(data.data.c_attention)
+
+				$('.aftercare p').html(data.data.c_method)
+
+		}
+		console.log( data )
+
+	})
+
+})
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

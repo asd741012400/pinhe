@@ -1,0 +1,38 @@
+html,body{
+	font-family: "FangZheng";
+	background: url('../images/corporeity_bg.jpg') center/100% 100% no-repeat;
+	height: 100%;
+	overflow-y: scroll;
+}
+.main{
+	padding: 0 0.24rem 0.36rem;
+}
+.main ul li{
+	border-bottom: 1px dashed #692407;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	padding: 0.2rem 0;
+	background: url('../images/arrows_right2.png') right/0.14rem 0.24rem no-repeat;
+}
+.main ul li b{
+	width: 0.7rem;
+	height: 0.88rem;
+	padding-right: 0.3rem
+}
+.main ul li div{
+	flex: 1;
+	margin-top: 0.1rem;
+}
+.main ul li div p{
+	font-size: 0.3rem;
+	color: #333333;
+}
+.main ul li div span{
+	font-size: 0.24rem;
+	color: #666666;
+	display: block;
+	margin-top: 0.1rem;
+}

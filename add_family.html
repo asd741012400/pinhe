@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>添加家庭成员</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/add_family.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/datePicker.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<ul>
+		<li class="name">
+			<a>姓名</a>
+			<span>
+				<input class="c_name" type="text" placeholder="请输入">
+			</span>
+		</li>
+		<li class="relation">
+			<a>家庭关系</a>
+			<span>
+				<input class="c_relation" type="text" placeholder="请输入">
+			</span>
+		</li>
+		<li class="sex">
+			<a>性别</a>
+			<span><i class="c_sex"></i></span>
+		</li>
+		<li class="cellphone">
+			<a>绑定手机号码</a>
+			<span><i class="c_tel"></i></span>
+		</li>
+		<li>
+			<div id="birthday">
+				<a>生日</a>
+				<span><i class="c_birthday"></i></span>
+			</div>
+		</li>
+	</ul>
+	<div><button>确定</button></div>
+</div>
+
+
+
+<div class="select_sex">
+	<div>
+		<h1>请选择</h1>
+		<ul>
+			<li>男</li>
+			<li>女</li>
+		</ul>
+		<span>取消</span>
+	</div>
+</div>
+
+<div class="hint">
+	<div class="hint_win">
+		<span></span>
+		<div>
+			<p>个人资料提交成功</p>
+			<!-- <a href="equity.html">查看会员权益</a> -->
+		</div>
+	</div>
+
+	<div class="hint_restart">
+	</div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+
+$(function(){
+
+	
+	var name = sessionStorage.getItem( "name" );
+	var relation = sessionStorage.getItem( "relation" );
+	var sex = sessionStorage.getItem( "sex" );
+	var dataSex = sessionStorage.getItem( "dataSex" );
+	var mobile = sessionStorage.getItem( "sTel" );
+	var location = sessionStorage.getItem( "location" );
+	var birthday = sessionStorage.getItem( "birthday" );
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+
+	if( name != null )
+	{
+ 		$('.c_name').val(name);
+	}
+
+	if( relation != null )
+	{
+ 		$('.c_relation').val(relation);
+	}
+	if( sex != null )
+	{
+		$('.c_sex').html(sex);
+		$('.c_sex').attr('data-sex' , dataSex);
+	}
+	else
+	{
+		$('.c_sex').html("未设置");
+	}
+
+
+ 	if( mobile != null )
+	{
+		$('.c_tel').html(mobile);
+	}
+	else
+	{
+		$('.c_tel').html("未设置");
+	}
+
+	if( birthday != null )
+	{
+		$('.c_birthday').html(birthday);
+	}
+	else
+	{
+		$('.c_birthday').html("未设置");
+	}
+ 	
+ 
+
+		
+
+	//确定提交
+	$('.main div button').bind('click',function(){
+		if( $('.c_tel').html() != "未设置" ){
+		
+			yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/my_set_family" , "post" , {
+			 	c_uid : uId,
+			 	c_name : $('.c_name').val(),
+			 	c_relation : $('.c_relation').val(),
+			 	c_sex : $('.c_sex').attr('data-sex'),
+			 	c_mobile : $('.c_tel').html(),
+			 	c_birthday : $('.c_birthday').html(),
+			 	c_location : location,
+			} , function(data){
+			 	console.log( data )
+
+				if(data.status == 0)
+				{
+		
+					toShow('.hint_win' )
+				}
+				else
+				{
+					$('.hint_restart').html( data.msg )
+					toShow('.hint_restart' )
+					toHide( );
+
+				}
+				
+			})	
+
+		}
+		else
+		{
+			$('.hint_restart').html( "手机号码不能为空" )
+			toShow('.hint_restart')
+			toHide( );
+
+		}
+	})
+
+
+
+
+	//name存储
+	$(".c_name").bind("blur" , function(){
+		sessionStorage.name = $(this).val();
+	})
+	
+	//relation存储
+	$(".c_relation").bind("blur" , function(){
+		sessionStorage.relation = $(this).val();
+	})
+	
+
+
+	//性别选择
+	$('.sex').bind('click',function(){
+		$('.select_sex').show()
+	});
+	$('.select_sex div ul li').bind('click',function(){
+		$('.sex span i').text( $(this).text() );
+		
+		if( $(this).text() == "男" )
+		{ 
+			$('.sex span i').attr('data-sex' , 2)
+		}
+		else if( $(this).text() == "女" )
+		{
+			$('.sex span i').attr('data-sex' , 1)
+		}
+		else
+		{
+			$('.sex span i').attr('data-sex' , 0)
+		}
+		sessionStorage.sex = $(this).text();
+		sessionStorage.dataSex = $('.sex span i').attr('data-sex');
+		$('.select_sex').hide();
+	});
+	$('.select_sex div span').bind('click',function(){
+		$('.select_sex').hide();
+	})
+
+	//日历选择
+	var calendar = new datePicker();
+	calendar.init({
+	    'trigger': '#birthday', /*按钮选择器，用于触发弹出插件*/
+	    'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+	    'minDate':'1600-1-1',/*最小日期*/
+	    'maxDate':'2100-12-31',/*最大日期*/
+	    'onSubmit':function(){/*确认时触发事件*/
+	        var theSelectData=calendar.value;
+	        $('#birthday span i').text(theSelectData);
+	        sessionStorage.birthday = theSelectData;
+	    },
+	    'onClose':function(){/*取消时触发事件*/
+	    }
+	});
+
+
+
+
+
+	//点击手机号码跳转页面
+	$('.cellphone').bind('click',function(){
+
+		sessionStorage.locationHref = window.location.href;	
+		window.location.href = 'binding.html';
+
+	})
+
+	//输入框val清空
+	$('.name').bind( "click" ,function(){
+		$(this).find('input').val("");
+	})
+	$('input').bind( "blur" ,function(){
+		if($(this).val() == "")
+		{
+			$(this).val($(this).attr('value'));
+		}
+	})
+
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

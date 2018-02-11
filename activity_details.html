@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>精彩活动详情</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/activity_details.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+
+
+<div class="main">
+
+	<div class="title">
+		<h1>品禾汤茶铺子渝北店开业大酬宾</h1>
+		<time>品禾汤茶铺子渝北店开业大酬宾</time>
+	</div>
+	<!-- <div class="banner"><img src="" alt=""></div> -->
+
+	<div class="content">
+		<a></a>
+		<p></p>
+	</div>
+	<div class="apply">
+		<h1><span>活动报名方式如下</span></h1>
+		<ul>
+			<li>1.添加禾宝微信号（Daiyao888999），回复“参与活动”，进行线上报名</li>
+			<li>2.拨打客服热线（177-8228-3136），进行语音报名</li>
+		</ul>
+	</div>
+</div>
+
+<style>
+
+</style>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	Request = GetRequest();
+	var c_id = Request["c_id"];
+
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/News/getNewsDetail" ,"get" , {
+		id : c_id
+	} ,function(data){
+
+		if ( data.status == 0 ) 
+		{
+
+
+			$('.title h1').html( data.data.c_title )
+			$('.title time').html( data.data.c_add_time )
+/*			$('.banner img').attr( 'src', data.data.c_image )
+			$('.content a').html( data.data.c_introduction )
+			let html = data.data.c_detail.split("\n");
+			$.each( html , function(index, val) {
+				$('.content').append(`<p>${val}</p>`)
+			});*/
+			var html =  data.data.c_detail.replace(/&nbsp;/g,'');
+			$('.content').html( html )
+		}
+		console.log( data )
+	})
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta id="meta" name="viewport" content="width=device-width, initial-scale=1">
+  <title>资讯详情页</title>
+
+  <link href="../css/common.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/message_details.css" rel="stylesheet">
+ 
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#one">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand" id="logo"> <img src="../images/logo.png" alt=""> </a>
+      </div>
+      <div class="collapse navbar-collapse" id="one">
+        <ul class="nav navbar-nav pull-right">
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script type="text/javascript">
+
+</script>
+
+
+
+<div class="message_content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="text">
+				<h1></h1>
+				<time></time>
+				<p class="c_introduction"></p>
+				<!--<b><img src="../images/official/news_banner.jpg" alt=""></b>-->
+				<p class="c_detail"></p>
+			</div>
+			<div class="code">
+				<span><img src="../images/QR_code.jpg" alt=""></span>
+				<p>扫一扫二维码关注品禾订阅号，获得更多养生服务</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<footer><div class="container-fluid">©2017 Baidu 使用品禾前必读 意见反馈 京ICP证030173号  京公网安备11000002000001号 技术支持：<a href="http://shop.zbj.com/114">千问网络</a></div></footer>
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script>
+$(document).ready(function () {
+
+toAjax()
+
+})
+
+function toAjax()
+{
+  var Request = new Object();
+  Request = GetRequest();
+
+  var cid = Request["cid"];
+
+  // alert(cid)
+
+  $.ajax({
+    type : "get",
+    url : "http://pinheadmin.qw1000.cn/web/News/getNewsDetail",
+    data : {
+      id : cid,
+    },
+    success : function( data ){
+
+      console.log( data )
+      $('.text h1').html(data.data.c_title);
+      $('.text time').html(data.data.c_add_time);
+      // $('.text b img').attr("src",data.data.c_image);
+      $('.text .c_introduction').html(data.data.c_intro_duction);
+      $('.text .c_detail').html(data.data.c_detail);
+
+    }
+  })
+
+
+  
+}
+
+</script>
+</body>
+</html>

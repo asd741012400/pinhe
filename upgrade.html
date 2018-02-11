@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>升级会员</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/upgrade.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/jweixin-1.2.0.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header>
+		<ul>
+			<li>
+				<p>剩余健康豆</p> 
+				<p><span>100</span>颗</p>
+				<p></p>
+				<p>健康豆明细</p>
+			</li>
+		</ul>
+	</header>
+
+	<h1><span>请选择充值选项</span></h1>
+
+	<div class="upgrade">
+
+		<div class="active" title="ka">
+
+		</div>
+
+		<div title="ka">
+
+		</div>
+	</div>
+
+	<div id="yin" title="ka">
+
+
+	</div>
+
+
+	<div id="jin" title="ka">
+
+
+	</div>
+
+
+	<span class="btn">立即充值</span>
+
+	<a href="equity.html">点击查看<i>会员权益</i></a>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/memberUpgrade" , "get" , {
+	 	uid : uId
+	} , function(data){
+
+		let goodsId = 0;
+		if( data.status == 0 )
+		{
+			console.log( data )
+			$('header ul li p span').html( data.health_bean )
+
+			addHtml( $('#yin') , data , 0)
+			addHtml( $('#jin') , data , 1)
+			addHtml( $('.upgrade > div:eq(0)') , data , 0)
+			addHtml( $('.upgrade > div:eq(1)') , data , 1)
+
+			$.each( $('div[title="ka"]') , function(index, val) {
+				if ( $(this).attr("data-select") == "true" ) 
+				{
+					goodsId = $(this).find('div').attr("c_id");
+				}
+			});
+
+			$('div[title="ka"]').click(function() {
+				if ( $(this).attr("data-select") == "true" ) 
+				{
+					goodsId = $(this).find('div').attr("c_id");
+				}
+			});
+
+
+			$('span.btn').click(function(event) {
+				
+				yDataAjax( "http://pinheadmin.qw1000.cn/Home/Pay/orderAdd" , "post" , {
+				 	uid : uId,
+				 	goodsId : goodsId
+				} , function(data){
+					var wxpay = JSON.parse(data.wxpay);
+					console.log( wxpay )
+					function onBridgeReady(){
+					   WeixinJSBridge.invoke(
+					       'getBrandWCPayRequest', {
+					           "appId":wxpay.appId,     //公众号名称，由商户传入     
+					           "timeStamp":wxpay.timeStamp,         //时间戳，自1970年以来的秒数     
+					           "nonceStr":wxpay.nonceStr, //随机串     
+					           "package":wxpay.package,     
+					           "signType":wxpay.signType,         //微信签名方式：     
+					           "paySign":wxpay.paySign //微信签名 
+					       },
+					       function(res){     
+					           if(res.err_msg == "get_brand_wcpay_request:ok" ) 
+					           {
+					           		console.log( res.err_msg )
+
+					           		window.location.href = 'member.html';
+					           }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+
+					       }
+					   ); 
+					}
+					if (typeof WeixinJSBridge == "undefined"){
+					   if( document.addEventListener ){
+					       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+					   }else if (document.attachEvent){
+					       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+					       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+					   }
+					}else{
+					   onBridgeReady();
+					}
+
+			
+
+
+					
+				})
+
+
+			});
+			
+
+
+		}
+	})	
+	$('.upgrade div').bind('click', function(event) {
+		$(this).addClass('active').siblings('div').removeClass('active');
+		$(this).attr('data-select' , "true").siblings('div').attr('data-select' , "false");
+	});
+
+	Request = GetRequest();
+	var url = Request["url"];
+
+
+	if( url == "member" )
+	{
+		$('.upgrade div:eq(0)').attr("data-select","true")
+		$('.upgrade').show();
+
+	}
+	else if( url == "yin" )
+	{
+		$('#yin').attr("data-select","true")
+		$('#yin').show()
+	}
+	else if( url == "jin" )
+	{
+		$('#jin').attr("data-select","true")
+		$('#jin').show()
+	}
+})
+
+function addHtml( obj , data , num)
+{
+	 obj.append(`
+		<div c_id="${data.data[num].c_id}">
+			<ul>
+				<li>${data.data[num].level}</li>
+				<li><span>${data.data[num].c_price}</span>元</li>
+				<li>获得健康豆<span>${data.data[num].c_integral}</span>颗</li>
+			</ul>
+			<p>享受${data.data[num].c_level}专属权益</p>
+		</div>`)
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

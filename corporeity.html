@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>九大体质介绍</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/corporeity.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<ul>
+		
+	</ul>
+</div>
+
+<style>
+
+</style>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+
+$(function(){
+
+	nDataAjax( "http://pinheadmin.qw1000.cn/Home/Introduce/getCon " ,"get" ,function(data){
+
+		if( data.status == 0 ){
+
+			$.each( data.data , function(index, val) {
+				
+				$('.main ul').append(
+					`<li c_id="${val.c_id}">
+						<b><img src="${val.c_move_icon}" alt=""></b>
+						<div>
+							<p>${val.c_title}</p>
+							<span>${val.c_guihua}</span>
+						</div>
+					</li>`)
+
+			});
+			$('.main ul li').click(function(event) {
+				window.location.href = "corporeity_details.html?id="+$(this).attr("c_id");
+			});
+
+		}
+		console.log( data )
+
+	})
+
+})
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

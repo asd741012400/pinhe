@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>我的会员</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/my_member.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header>
+		<ul>
+			<li><p>普通会员</p></li>
+		</ul>
+	</header>
+	<a class="right" href="record.html">赠品记录</a>
+	<div class="tab">
+		<div class="title">
+			<h1 class="active" data-index='0'>
+				<b>会员权益</b>
+				<em></em>
+			</h1>
+			<span></span>
+			<h1 data-index='1'>
+				<b>赠送产品</b>
+				<em></em>
+			</h1>
+		</div>
+		
+		<div class="member tab_toggle" style="display: block;">
+			<p>
+				<span><img src="images/icon_ku.png" alt=""></span>
+				<a>无会员权益</a>
+			</p>
+			<div class="list">
+				<ul>
+					
+				</ul>
+				<h3 onclick="window.location.href = 'equity_details.html'">查看完整会员权益</h3>
+			 	<h4>截/止/时/间</h4>
+			 	<div class="timer">
+			 		<span>2018-10-17 09:10:12</span>
+			 		<em></em>
+			 	</div>
+		 	</div>
+		</div>
+
+
+
+
+
+
+		<div class="product tab_toggle">
+			<h5>
+				<span><img src="images/icon_ku.png" alt=""></span>
+				<a>无赠送产品</a>
+			</h5>
+			<ul>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="hint">
+	<div>
+		<span></span>
+		<div>
+			<p>领取申请提交成功</p>
+			<p>请凭手机号到店领取</p>
+			<a href="#" class="close">确定</a>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+	$('.tab').height( $(window).outerHeight() - $('header').outerHeight() - 30)
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/User/my_vip_rights" , "get" , {
+		uid : uId
+	},function(data){
+		if( data.status == 0 )
+		{
+
+			var html = "";
+			console.log( "------------",data )
+			if(data.data.c_level == 0)
+			{
+				html = "普通会员";
+				$('.list').hide();
+			}
+			else if(data.data.c_level == 1)
+			{
+				html = "福星会员";
+				$('.list').hide();
+			}
+			else if(data.data.c_level == 2)
+			{
+				html = "银卡会员";
+				$('.member p').hide();
+			}
+			else if(data.data.c_level == 3)
+			{
+				html = "金卡会员";
+				$('.member p').hide();
+			}
+
+			$('header ul li p').html( html )
+			$('.timer span').html( data.data.c_shop_time )
+
+			var aData = data.data.c_simplify_detail.split("\n");
+			$.each( aData , function(index, val) {
+			 	
+				$('.list ul').append('<li>'+ val +'</li>')
+
+			});
+		}
+
+
+	})
+
+
+
+
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/User/my_Presented" , 'get' , {
+		uid : uId,
+		// type : 0,
+	} , function( data ){
+		var html = '';
+		console.log( data )
+		if( data.status == 1 )
+		{
+			$('.product ul').hide()
+		}
+		else
+		{
+			$('.product h5').hide()
+
+			$.each(data.data , function(index, val) {
+				 if( val['c_status'] == "0" )
+				 {
+				 	html = '立即领取';
+				 }
+				 else
+				 {
+				 	html = '已领取';
+				 }	
+				 $('.product ul').append(
+				"<li>"+
+					"<b><img src='"+val["c_img"]+"' alt=''></b>"+
+					"<em></em>"+
+					"<div>"+
+					 	"<p>"+val["c_name"]+"</p>"+
+					 	"<p>零售价：<span>¥</span><i>"+val["c_price"]+"/"+val["c_unit"]+"</i></p>"+
+					"</div>"+
+					"<a c_id="+val["c_id"]+">"+html+"</a>"+
+				"</li>")
+				if( html =='已领取' )
+				{
+		
+				 	$('.product ul li').eq(index).find('a').addClass('active');
+				}
+			});
+		}
+		
+		$('.product ul li a').bind('click',function(){
+
+	 		toSubmit( $(this).attr('c_id') , $(this) )
+			
+		});
+
+		
+	})
+
+function toSubmit( c_id , obj){
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/receive_presented" , "get" , {
+	 	c_id : c_id
+	} , function(data){
+
+	 	console.log( data )
+
+
+	 	if( data.status == 0 )
+		{
+			obj.html('已领取');
+			obj.addClass('active');
+			toShow( $('.hint>div') );
+		}
+
+	})	
+}
+
+
+	$('.tab .title h1').bind('click',function(){
+
+		$(this).addClass('active').siblings('h1').removeClass('active');
+
+		$('.tab .tab_toggle').eq( $(this).attr('data-index') ).show().siblings('.tab_toggle').hide();
+
+	})
+
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

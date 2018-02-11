@@ -1,0 +1,88 @@
+.main{
+	font-size: 0.28rem;
+	overflow: hidden;
+	font-family: "微软雅黑";
+}
+.main div{
+	overflow: hidden;
+}
+.main h1{
+	font-size: 0.28rem;
+	background: url('../images/cloud.png') left/1.03rem 0.47rem no-repeat;
+	color: #df4136;
+	padding-left: 1.3rem;
+	line-height: 0.48rem;
+	margin: 0 0.24rem;
+	position: relative;
+	top: -0.17rem;
+}
+.main ul{
+	padding: 0 0.95rem;
+	height: 6rem;
+	overflow-y: scroll;
+}
+.main ul li{
+	overflow: hidden;
+	line-height: 0.74rem;
+	height: 0.74rem;
+	margin-top: 0.38rem;
+}
+.main ul li a{
+	float: left;
+	width: 4.15rem;
+	height: 0.74rem;
+	color: #af5e59;
+	background: #fff4cc;
+	border: 1px solid #ebebeb;
+	padding-left: 0.3rem;
+}
+.main ul li:last-of-type{
+	margin-bottom: 0.38rem;
+}
+.main ul li span{
+	float: right;
+	width: 0.34rem;
+	height: 100%;
+	background-image: url('../images/pitch_no.png');
+	background-size: 0.34rem 0.34rem;
+	background-position: right;
+	background-repeat: no-repeat;
+}
+.main ul li span.active{
+	background-image: url('../images/pitch_yes.png');
+}
+.main p{
+	padding: 0.49rem 0.95rem 0.2rem;
+}
+.main p button{
+	border: 0;
+	width: 100%;
+	line-height: 0.8rem;
+	color: #fff;
+	background: #f03e3e;
+	border-radius: 5px;
+	font-family: "微软雅黑";
+}
+.popup{
+	position: fixed;
+	top: 1rem;
+	width: 100%;
+	display: none;
+	opacity: 0;
+}
+.popup p{
+	width: 4.4rem;
+	height: 1rem;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 10px;
+}
+.popup span{
+	display: block;
+	text-align: center;
+	line-height: 1rem;
+	color: #fff;
+	font-size: 0.26rem;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}

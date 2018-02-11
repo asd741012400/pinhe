@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>积分兑换详情</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/integral_exchange_details.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<div class="product"><img src="" alt=""></div>
+	<h1></h1>
+	<h2><span></span>积分</h2>
+	<div class="exchange">
+		<span>兑换方式</span>
+		<b>到店自提</b>
+	</div>
+	<h3>兑换地址</h3>
+	
+	<div class="address">
+		
+	</div>
+	<a class="btn">立即兑换</a>
+</div>
+<div class="warning"></div>
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+	Request = GetRequest();
+	var c_id = Request["c_id"];
+	// console.log(c_id)
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/Integral/getIntegralDetail" , "get" , {
+		id : c_id
+	} ,function( data ){
+		console.log( data )
+		if ( data.status == 0 ) 
+		{
+			$('.product img').attr("src" , data.data.c_image );
+			$('h1').html(data.data.c_integral_name)
+			$('h2 span').html(data.data.c_need_integral)
+			$('.exchange_code span').html(data.data.c_redeem_code);
+
+			$.each( data.address , function(index, val) {
+				
+				$('.address').append(`
+					<ul c_id='${val.c_id}'>
+						<li><b>${val.c_shop_name}</b></li>
+						<li><i>${val.c_address}</i></li>
+						<li><em>${val.c_phone}</em></li>
+					</ul>`)
+
+			});
+
+			$(".main .btn").click(function(){
+				let This = $(this);
+				console.log( c_id )
+				yDataAjax( "http://pinheadmin.qw1000.cn/Home/Integral/isRedeem" , "post" , {
+					uid : uId,
+					id : c_id
+				} ,function( data ){
+
+					if ( data.status == 0 )
+					{
+						This.css({
+							"background" : "#ccc",
+							"color" : "#fff"
+						})
+						This.html("已兑换")
+						toWarning( data.msg )
+						
+					}
+					else
+					{
+						toWarning( data.msg )
+					}
+				})
+
+			})
+		}
+		else
+		{
+			toWarning("刷新一下")
+		}
+	})
+
+})
+
+
+function toWarning( html )
+{
+	$('.warning').html( html );
+	$('.warning').show();
+	setTimeout(function(){
+		$('.warning').hide();
+	},1000)
+}
+</script>
+
+
+</body>
+</html>
+
+
+

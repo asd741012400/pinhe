@@ -1,0 +1,23 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/member_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem;
+}
+.main ul{
+	padding: 0 0.24rem;
+	color: #333333;
+	font-size: 0.28rem;
+	line-height: 0.86rem;
+	height: 10.32rem;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+.main ul li{
+	border-bottom:1px solid #c0c0c0; 
+}

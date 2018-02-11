@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>更改手机号码</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/change.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header><img src="images/logo.png" alt=""></header>
+	<div class="one">
+		<ul>
+			<li>
+				<a>当前手机号码:</a>
+				<span class="phone"></span>
+			</li>
+			<li>
+				<a>验证码</a>
+				<span><input class="note" type="text" placeholder="请输入验证码"></span>
+				<b class="get_verify"><img src="images/note.png" alt=""></b>
+			</li>
+		</ul>
+		<footer><button id="oneBtn">确定</button></footer>
+	</div>
+	<div class="two">
+		<ul>
+			<li>
+				<a>手机号码:</a>
+				<span><input class="phone" type="text" placeholder="请输入新的手机号码"></span>
+			</li>
+			<li>
+				<a>验证码</a>
+				<span><input class="note" type="text" placeholder="请输入验证码"></span>
+				<b class="get_verify"><img src="images/note.png" alt=""></b>
+			</li>
+		</ul>
+		<footer><button id="twoBtn">确定</button></footer>
+	</div>
+</div>
+<div class="hint">
+	<div class="hint_restart">
+	</div>
+</div>
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+$('.phone').html( sessionStorage.getItem( "sTel" ) );
+//验证短信发送	
+	var oTimer = null;
+	var bOn = null;
+	$('.get_verify').eq(0).bind('click',function(){
+		bOn = true;
+		toSend($(this))
+	})
+	$('.get_verify').eq(1).bind('click',function(){
+		bOn = true;
+		toSend($(this))
+	})
+
+function toSend(obj){
+	if( bOn ){
+		bOn = false;
+		if ( obj.parents('div').attr('class') == 'one')
+		{
+			var phone = $('.one ul li .phone').html();
+		}
+		else if(obj.parents('div').attr('class') == 'two')
+		{
+			var phone = $('.two ul li span input.phone').val();
+		}
+		clearInterval(oTimer)
+		var num = 60;
+		obj.html(num+"秒后重新发送");
+		$This = obj;
+		oTimer = setInterval(function(){
+			num--;
+			$This.html(num+"秒后重新发送")
+			if(num <= 0)
+			{
+				num = 60;
+				bOn = true;
+				$This.html('<img src="images/note.png" alt="">')
+				clearInterval(oTimer)
+			}
+		},1000)
+
+		yDataAjax('http://pinheadmin.qw1000.cn/Home/Sms/send', 'post' , {
+			c_tel : phone,
+		} , function( data ){
+			if( data.status ){
+				alert( data.info )
+				bOn = true;
+				$('.get_verify').html('<img src="images/note.png" alt="">')
+				clearInterval(oTimer)
+			}
+			else{
+				console.log(data.info);		
+			}
+		})
+
+	}
+}
+
+
+	//更改手机号码之后点击确定
+	$('#oneBtn').bind('click',function(){
+		yDataAjax('http://pinheadmin.qw1000.cn/Home/Sms/Sms_verify' , 'post' , {
+			tel : $('.one ul li .phone').html(),
+			code : $('.one ul li span input').val(),
+		},function( data ){
+			if( data.status == 1 )
+			{
+				$('.hint_restart').html('验码错误，请重新输入');
+				toShow('.hint_restart');
+				toHide()
+			}
+			else
+			{
+				$('.main div.one').hide().next().show()
+			}
+		})
+	})
+
+	//确认更改号码
+	$('#twoBtn').bind('click',function(){
+		alert( $('.two ul li span input.phone').val() )
+		yDataAjax('http://pinheadmin.qw1000.cn/Home/Sms/Sms_verify' , 'post' , {
+			tel : $('.two ul li span input.phone').val(),
+			code : $('.two ul li span input.note').val(),
+		},function( data ){
+			if( data.status == 1 )
+			{
+				$('.hint_restart').html('验码错误，请重新输入');
+				toShow('.hint_restart');
+				toHide()
+			}
+			else
+			{
+				$('.hint_restart').html('修改成功');
+				toShow('.hint_restart');
+				toHide( true )
+				$('.get_verify').html('<img src="images/note.png" alt="">');
+				sessionStorage.sTel = $('.two ul li span input.phone').val();
+				// window.location.href = 'perfect.html';
+			}
+		})
+
+		
+	})
+
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

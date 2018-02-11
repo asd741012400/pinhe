@@ -1,0 +1,69 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/myMember_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	overflow: scroll;
+	padding: 0 0.24rem;
+}
+
+.main h1{
+	line-height: 1.2rem;
+	border-bottom: 1px solid #c0c0c0;
+	color: #666666;
+	font-size: 0.28rem;
+	font-weight: 500;
+	overflow: hidden;
+}
+.main h1 a{
+	float: left;
+}
+.main h1 span{
+	float: right;
+	font-size: 0.32rem;
+	color: #692407;
+}
+.main h1 span i{
+	font-style: normal;
+}
+.main ul{
+	font-size: 0.28rem;
+	padding-top: 0.4rem;
+	border-bottom: 1px solid #c0c0c0;
+	padding-bottom: 0.3rem;
+}
+.main ul li{
+	line-height: 0.5rem;
+	overflow: hidden;
+}
+.main ul li a{
+	float: left;
+	color: #666666;
+}
+.main ul li span{
+	float: right;
+	color: #333333;
+}
+.main a.btn{
+	display: block;
+	width: 100%;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #fff;
+	background: #692407;
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 0.7rem;
+}
+.curve{
+	position: absolute;
+	top: 50%;
+	width: 2.57rem;
+	right: 0rem;
+	z-index: 1;
+
+}

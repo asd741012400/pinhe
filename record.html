@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>赠品记录</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/record.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<ul>
+		
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 40;
+
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/User/my_Presented" , 'get' , {
+		uid : uId,
+		type : 1,
+	} , function( data ){
+		
+		$.each( data.data , function(index, val) {
+			$('.main ul').append(
+				"<li>"+
+					"<div>"+
+						"<p>"+val["c_name"]+"</p>"+
+						"<time>"+val["c_create_time"]+"</time>"+
+					"</div>"+
+					"<span>已领取</span>"+
+				"</li>"
+			)
+		});
+		
+	})
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

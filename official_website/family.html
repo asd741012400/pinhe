@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta id="meta" name="viewport" content="width=device-width, initial-scale=1">
+  <title>健康管理师</title>
+
+  <link href="../css/common.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/family.css" rel="stylesheet">
+ 
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#one">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand" id="logo"> <img src="../images/logo.png" alt=""> </a>
+      </div>
+      <div class="collapse navbar-collapse" id="one">
+        <ul class="nav navbar-nav pull-right">
+        
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="family_content">
+  <div class="container-fluid">
+  	<div class="decorate"> <img src="../images/official/decorate.png" alt=""> </div>
+  	<div class="pinhe"> <img src="../images/official/pinhe.png" alt=""> </div>
+  	<ul>
+  	  <li>
+  	  </li>
+  	</ul>
+  </div>
+</div>
+
+
+
+
+
+<footer><div class="container-fluid">©2017 Baidu 使用品禾前必读 意见反馈 京ICP证030173号  京公网安备11000002000001号 技术支持：<a href="http://shop.zbj.com/114">千问网络</a></div></footer>
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script>
+ $(document).ready(function () {
+
+
+
+$.ajax({
+  type : "get",
+  url : "http://pinheadmin.qw1000.cn/web/Staff/getStaff",
+  success : function( data ){
+    var html = '';
+    $.each( data.data , function(index, val) {
+        console.log( val )
+      $('.family_content ul li').append(
+        `<div c_id="${val.c_id}">
+            <span class="name">
+              <i><span>${val.c_name}</span></i>
+              <em>${val.c_type}</em>
+            </span>
+            <b>联系方式<i>${val.c_mobile}</i></b>
+            <p>${val.c_introduction} </p>
+            <span class="img"><img src="${val.c_pc_avatar}" alt=""></span>
+          </div>`
+      )
+
+
+    });
+
+
+  }
+})
+
+})
+
+
+
+</script>
+</body>
+</html>

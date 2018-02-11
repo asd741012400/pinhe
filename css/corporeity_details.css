@@ -1,0 +1,93 @@
+html,body{
+	font-family: "FangZheng";
+	background: url('../images/corporeity_details_bg.jpg') center/100% 100% no-repeat;
+	height: 100%;
+	overflow-y: scroll;
+}
+.main{
+	padding: 0 0.24rem;
+	overflow: hidden;
+	padding-bottom: 1rem;
+}
+
+.banner{
+	overflow: hidden;
+	width: 4.5rem;
+	margin-top: 0.4rem;
+}
+
+
+.habitus_content{
+	margin-top: 0.3rem;
+}
+.habitus_content .introduce{
+	overflow: hidden;
+}
+.habitus_content .introduce span{
+	font-size: 0.28rem;
+	background: url('../images/habitus_bg.png') center/100% no-repeat;
+	float: left;
+	width: 1.54rem;
+	height: 0.48rem;
+	line-height: 0.50rem;
+	text-align: center;
+	color: #fff;
+	margin-top: 0.12rem;
+}
+.habitus_content .introduce a{
+	font-size: 0.26rem;
+	background: url('../images/examine_bg.png') center/100% no-repeat;
+	float: right;
+	width: 3.16rem;
+	height: 0.72rem;
+	line-height: 0.78rem;
+	text-align: center;
+	color: #333333;
+}
+.habitus_content .introduce a i{
+	color: #692407;
+}
+
+.habitus_content .introduce_list{
+	font-size: 0.28rem;
+	color: #666666;
+	margin-top: 0.3rem;
+	line-height: 0.36rem;
+	height: 4.2rem;
+	overflow: hidden;
+	border-bottom: 0.2rem solid #e5e5e5;
+}
+.habitus_content .introduce_list ul{
+	border-bottom: 1px solid #c0c0c0;
+	height: 4.14rem;
+}
+.habitus_content .introduce_list ul li{
+	padding-bottom: 0.14rem;
+}
+.everyday{
+	border-bottom: 1px solid #c0c0c0;
+	padding: 0.3rem 0;
+}
+.everyday h2{
+	font-size: 0.3rem;
+	color: #333333;
+}
+.everyday p{
+	font-size: 0.28rem;
+	color: #666666;
+	margin-top: 0.22rem;
+	line-height: 0.34rem;
+}
+.aftercare{
+	padding: 0.3rem 0;
+}
+.aftercare h2{
+	font-size: 0.3rem;
+	color: #333333;
+}
+.aftercare p{
+	font-size: 0.28rem;
+	line-height: 0.34rem;
+	color: #666666;
+	margin-top: 0.22rem;
+}

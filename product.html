@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>品禾</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/product.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="nav">
+	<ul>
+	</ul>
+</div>
+<div class="main">
+	<div class="tab">
+	</div>
+	<div class="tab_content">
+	</div>
+</div>
+
+<style>
+
+</style>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+
+$(function(){
+
+var tId = sessionStorage.getItem( "c_cateid" );
+// localStorage.removeItem("c_cateid");
+
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/Product/getProduct" ,"get" ,{
+		tid : tId 
+	},function(data){
+
+		if( data.status == 0 ){
+
+
+
+			$.each( data.arrCate , function(index, val) {
+				
+
+				$('.nav ul').append(`<li c_id='${val.c_id}'>${val.c_title}</li>`);
+
+			});
+			$('.nav ul li:eq(0)').addClass('active');
+
+
+			$.each( data.arrCate[0].cate, function(index, val) {
+
+				$('.tab').append(`<a c_id="${val.c_id}">${val.c_title}</a>`)
+			});
+			
+
+
+			if( data.data )
+			{
+
+
+				$.each( data.data , function(index, val) {
+					
+					$('.tab_content').append(
+						`<div c_id='${val.c_id}' >
+							<span><img src="${val.c_image}" alt=""></span>
+							<h3>${val.c_product_title}</h3>
+							<p>${val.c_introduction}</p>
+						</div>`)
+				});
+
+			}
+			else
+			{
+				$('.tab_content').append("<font size='1'>暂时没有产品</font>")
+			}
+
+			toTabDiv()
+
+
+			if( tId )
+			{  
+				$('.tab a[c_id='+tId+']').addClass('active').siblings('a').removeClass('active');
+			}
+			else
+			{
+				$('.tab a:eq(0)').addClass('active').siblings('a').removeClass('active');
+			}
+
+			$('.nav ul li').click(function(event) {
+				$('.tab a:eq(0)').addClass('active').siblings('a').removeClass('active');
+				$(this).addClass('active').siblings('li').removeClass('active');
+				var pid = $(this).attr("c_id");
+				if( $(this).attr("c_id") == $('.nav ul li:eq(0)').attr("c_id") )
+				{
+					$('.tab').show()
+					var tid = $('.tab a:eq(0)').attr("c_id");
+				}
+				else
+				{
+					$('.tab').hide()				
+					var tid = null;
+				}
+				yDataAjax( "http://pinheadmin.qw1000.cn/Home/Product/getProduct" ,"get" ,{
+					pid : pid,
+					tid : tid 
+				},function(data){
+
+					if( data.status == 0 ){
+
+
+						$('.tab_content').html("")
+						if( data.data )
+						{
+
+							$.each( data.data , function(index, val) {
+								$('.tab_content').append(
+									`<div c_id='${val.c_id}' >
+										<span><img src="${val.c_image}" alt=""></span>
+										<h3>${val.c_product_title}</h3>
+										<p>${val.c_introduction}</p>
+									</div>`)
+							});
+						}
+						else
+						{
+							
+							$('.tab_content').append("<font size='1'>暂时没有产品</font>")
+						}
+						
+						toTabDiv()
+
+
+					}
+
+				})
+
+				
+			});
+
+
+		
+
+			$('.tab a').click(function(event) {
+				tId = false;
+
+				$(this).addClass('active').siblings('a').removeClass('active');
+				var tid = $(this).attr("c_id");
+				yDataAjax( "http://pinheadmin.qw1000.cn/Home/Product/getProduct" ,"get",{
+					tid : tid
+				},function(data){
+
+					$('.tab_content').html("")
+					if( data.data )
+					{
+
+						$.each( data.data , function(index, val) {
+							$('.tab_content').append(
+								`<div c_id='${val.c_id}' >
+									<span><img src="${val.c_image}" alt=""></span>
+									<h3>${val.c_product_title}</h3>
+									<p>${val.c_introduction}</p>
+								</div>`)
+						});
+					}
+					else
+					{
+						
+						$('.tab_content').append("<font size='1'>暂时没有产品</font>")
+					}
+					toTabDiv()
+
+				})
+
+			});
+
+
+
+
+
+		}
+		console.log( data )
+
+	})
+
+
+})
+
+
+function toTabDiv(){
+
+	$('.tab_content div').click(function(event) {
+
+		window.location.href = "product_details.html?id="+$(this).attr("c_id");
+
+	});
+}
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

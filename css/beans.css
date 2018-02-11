@@ -1,0 +1,325 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/myMember_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	overflow: scroll;
+}
+.main .right{
+	position: absolute;
+	right: 0.24rem;
+	top: 0.24rem;
+	font-size: 0.24rem;
+	color: #333333;
+	width: 0.57rem;
+	border-bottom: 1px solid #692407;
+	text-align: center;
+	line-height: 0.3rem;
+	padding-bottom: 0.05rem
+}
+.main header{
+	overflow: hidden;
+	padding: 0 0.24rem;
+}
+.main header ul{
+	width: 2.44rem;
+}
+.main header ul li{
+	width: 3.5rem;
+	height: 3rem;
+	background: url('../images/beans_title.png') center/100% 100% no-repeat;
+	overflow: hidden;
+	margin-top: 0.3rem;
+}
+.main header ul li p{
+	overflow: hidden;
+	top: 1.5rem;
+	width: 2rem;
+	font-size: 0.28rem;
+	position: relative;
+	right: 0.6rem;
+	text-align: center;
+	color: #333333;
+	line-height: 0.4rem
+}
+.main header ul li p:nth-of-type(2){
+	color: #692407;
+	font-size: 0.3rem;
+}
+.main header ul li p:nth-of-type(3){
+	width: 1rem;
+	height: 1px;
+	background: #999999;
+	right: 0.6rem;
+	margin: 0.1rem auto;
+}
+.main header ul li p:nth-of-type(4){
+	font-size: 0.26rem;
+}
+
+.main .member{
+	width: 2rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: #692407;
+	color: #fff;
+	font-size: 0.3rem;
+	text-align: center;
+	border-radius: 3px; 
+	margin: 0.4rem auto 0.6rem;
+	display: block;
+}
+.main .tab{
+	overflow: scroll;
+}
+.main .tab div.title{
+	overflow: hidden;
+	text-align: center;
+	width: 2.8rem;
+}
+.main .tab div.title h1{
+	font-size: 0.3rem;
+	color: #666666;
+	float: left;
+}
+.main .tab div.title h1.active{
+	color: #692407;
+}
+.main .tab div.title h1 b{
+	font-weight: 500;
+	display: block;
+}
+.main .tab div.title h1 em{
+	display: block;
+	width: 1rem;
+	height: 1px;
+	background: #692407;
+	margin-top: 0.1rem;
+	display: none;
+}
+.main .tab div.title h1.active em{
+	display: block;
+}
+.main .tab div.title span{
+	float: left;
+	width: 2px;
+	height: 0.2rem;
+	background: #797878;
+	margin: 0.07rem 0.12rem 0;
+}
+.main .tab div.tab_toggle{
+	display: none;
+}
+
+.main .tab div.without p{
+	margin-top: 1.8rem;
+}
+.main .tab div.without p span{
+	display: block;
+	overflow: hidden;
+	width: 2rem;
+}
+.main .tab div.without p a{
+	text-align: center;
+	display: block;
+	color: #999999;
+	font-size: 0.26rem;
+	margin-top: 0.2rem;
+}
+.main .tab div.without ul{
+	padding: 0.4rem 0.56rem 0;
+	font-size: 0.28rem;
+	color: #333333;
+}
+.main .tab div.without ul li{
+	border-bottom: 1px solid #ad897a;
+	line-height: 0.56rem;
+	height: 0.56rem;
+	padding-left: 0.16rem;
+	overflow: hidden;
+}
+.main .tab div.without h3{
+	color: #692407;
+	font-size: 0.24rem;
+	text-align: center;
+	margin-top: 0.26rem;
+}
+.main .tab div.without h4{
+	color: #333333;
+	font-size: 0.28rem;
+	text-align: center;
+	margin-top: 0.55rem;
+}
+.main .tab div.without div{
+	margin-top: 0.2rem;
+}
+.main .tab div.without div span{
+	display: block;
+	width: 3.36rem;
+	height: 0.44rem;
+	line-height: 0.44rem;
+	border: 1px solid #692407;
+	color: #692407;
+	text-align: center;
+	font-size: 0.28rem;
+}
+.main .tab div.without div em{
+	width: 2rem;
+	height: 1px;
+	background: #692407;
+	display: block;
+	margin-top: 0.1rem;
+}
+
+
+
+.main .tab div.product{
+	width: 6.78rem;
+	overflow-y: scroll;
+	font-size: 0.3rem;
+}
+
+.main .tab div.product h5{
+	margin-top: 1.3rem;
+	font-weight: 500;
+}
+.main .tab div.product h5 span{
+	display: block;
+	overflow: hidden;
+	width: 2rem;
+}
+.main .tab div.product h5 a{
+	text-align: center;
+	display: block;
+	color: #999999;
+	font-size: 0.26rem;
+	margin-top: 0.2rem;
+}
+
+.main .tab div.product ul li{
+	width: 6.3rem;
+	background: url('../images/list_border.png') center/100% 100% no-repeat;
+	padding: 0.2rem;
+	overflow: hidden;
+	margin-bottom: 0.3rem;
+}
+.main .tab div.product ul li b{
+	width: 1.3rem;
+	float: left;
+	font-weight: 500;
+	margin-top: 0.34rem;
+}
+.main .tab div.product ul li b span{
+	display: block;
+	text-align: center;
+	font-size: 0.3rem;
+}
+.main .tab div.product ul li b span i{
+	font-style: normal;
+}
+.main .tab div.product ul li b strong{
+	display: block;
+	text-align: center;
+	font-weight: 500;
+	font-size: 0.22rem;
+}
+.main .tab div.product ul li em{
+	width: 1px;
+	height: 1.12rem;
+	border-left: 1px dotted #692407;
+	float: left;
+	margin: 0.1rem 0.3rem 0 0.2rem;
+}
+.main .tab div.product ul li div{
+	margin-top: 0.1rem;
+	line-height: 0.4rem;
+}
+.main .tab div.product ul li div p:nth-of-type(1){
+	font-size: 0.28rem;
+	color: #333333;
+}
+.main .tab div.product ul li div p:nth-of-type(2){
+	font-size: 0.22rem;
+	color: #666666;
+}
+
+.main .tab div.product ul li div p i{
+	font-style: normal;
+}
+.main .tab div.product ul li a{
+	font-size: 0.22rem;
+	text-align: right;
+	display: block;
+	color: #666666;
+}
+.main .tab div.product ul li a.active{
+	background: #999999;
+}
+.main .tab div.product h3{
+	font-size: 0.22rem;
+	color: #333333;
+	text-align: center;
+	font-weight: 500;
+	padding-top: 0.3rem;
+}
+
+
+
+.hint{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	top: 0;
+	display: none;
+}
+.hint > div{
+	width: 6.08rem;
+	position: absolute;
+	height: auto;
+	display: none;
+	opacity: 0;
+	margin-left: -3.04rem;
+	left: 50%;
+}
+
+.hint > div span{
+	display: block;
+	width: 0.5rem;
+	height: 0.8rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -0.25rem;
+}
+.hint > div div{
+	background: url('../images/hint_bg2.png') center/6.08rem 4.37rem no-repeat;
+	width: 6.08rem;
+	height: 4.37rem;
+	overflow: hidden;
+}
+.hint > div div p:nth-of-type(1){
+	margin-top: 2.12rem;
+
+}
+.hint > div div p{
+	font-size: 0.32rem;
+	color: #692407;
+	width: 3.2rem;
+	text-align: center;
+}
+.hint > div div a{
+	font-size: 0.26rem;
+	color: #fff;
+	display: block;
+	text-align: center;
+	margin-top: 0.2rem;
+	width: 1.4rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	background: #692407;
+	border-radius: 3px;
+}

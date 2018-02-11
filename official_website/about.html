@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta id="meta" name="viewport" content="width=device-width, initial-scale=1">
+  <title>关于我们</title>
+
+  <link href="../css/common.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/about.css" rel="stylesheet">
+ 
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#one">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand" id="logo"> <img src="../images/logo.png" alt=""> </a>
+      </div>
+      <div class="collapse navbar-collapse" id="one">
+        <ul class="nav navbar-nav pull-right">
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="about_content">
+	<div class="container-fluid">
+		<h1>
+			<a>公司简介</a>
+			<span>About us</span>
+		</h1>
+		<div class="about_list">
+			<ul>
+			</ul>
+		</div>
+		<div class="about_details">
+			<p></p>
+      <ul>
+        <li>
+          <h2>
+            <a>品牌定位</a>
+            <span>Brand positioning</span>
+          </h2>
+          <strong class="c_location"></strong>
+        </li>
+        <li>
+          <h2>
+            <a>品牌宗旨</a>
+            <span>Brand tenet</span>
+          </h2>
+          <strong class="c_zongzhi"></strong>
+        </li>
+        <li>
+          <h2>
+            <a>品牌使命</a>
+            <span>Brand mission</span>
+          </h2>
+          <strong class="c_mission"></strong>
+        </li>
+        <li>
+          <h2>
+            <a>品牌产品观</a>
+            <span>Brand concept</span>
+          </h2>
+          <strong class="c_product"></strong>
+        </li>
+        <li>
+          <h2>
+            <a>品牌人才观</a>
+            <span>Brand concept</span>
+          </h2>
+          <strong class="c_talent"></strong>
+        </li>
+        <li>
+          <h2>
+            <a>品牌经营理念</a>
+            <span>Brand concept</span>
+          </h2>
+          <strong class="c_dealin"></strong>
+        </li>
+      </ul>
+			<span><img src="" alt=""></span>
+
+      <b>
+      </b>
+		
+    </div>
+		<h2>
+			<a>联系我们</a>
+			<span>Contact us</span>
+		</h2>
+		<div class="about_contact">
+			<ul>
+				<li class="c_phone"></li>
+				<li>
+					<span class="c_serviceemail"></span>
+					<span class="c_cooperationemail"></span>
+				</li>
+				<li class="c_address"></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<footer><div class="container-fluid">©2017 Baidu 使用品禾前必读 意见反馈 京ICP证030173号  京公网安备11000002000001号 技术支持：<a href="http://shop.zbj.com/114">千问网络</a></div></footer>
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script>
+ $(document).ready(function () {
+
+$.ajax({
+  type : "get",
+  url : "http://pinheadmin.qw1000.cn/web/Index/getAboutUs",
+  success : function( data ){
+  	console.log( data )
+
+  	var c_aboutus1 = data.data.c_aboutus1.split("\n");
+    $.each( c_aboutus1 , function(index, val) {
+
+      $('.about_list ul').append(`<li>${val}</li>`)
+    });
+
+    $('.about_details p').html(`${data.data.c_aboutus2}`)
+    $('.about_details span img').attr( "src" , `${data.data.c_image}`)
+
+    $('.c_location').html( data.data.c_location )
+    $('.c_zongzhi').html( data.data.c_zongzhi )
+    $('.c_mission').html( data.data.c_mission )
+    $('.c_product').html( data.data.c_product )
+    $('.c_talent').html( data.data.c_talent )
+    $('.c_dealin').html( data.data.c_dealin )
+
+
+    var c_sumupHtml = data.data.c_sumup.split("\n");
+    $.each( c_sumupHtml , function(index, val) {
+      
+      $('.about_details b').append(`<em>${val}</em>`)
+    });
+
+
+    $('.c_phone').html(`电话:${data.data.c_phone}`)
+    $('.c_serviceemail').html(`品禾客服邮箱:${data.data.c_serviceemail}`)
+    $('.c_cooperationemail').html(`品禾商务合作邮箱:${data.data.c_cooperationemail}`)
+    $('.c_address').html(`地址:${data.data.c_address}`)
+
+  }
+})
+
+})
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>设置家庭地址</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/set_site.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header><img src="images/logo.png" alt=""></header>
+	<div>
+		<ul>
+			<li>
+				<a>所在小区</a>
+				<span data-html='no'>请选择</span>
+			</li>
+			<li>
+				<a>所在栋数</a>
+				<span data-html='no'>未设置</span>
+			</li>
+			<li>
+				<a>所在单元</a>
+				<span data-html='no'>未设置</span>
+			</li>
+			<li>
+				<a>所在房间号</a>
+				<span data-html='no'>未设置</span>
+			</li>
+		</ul>
+		<footer><button>确定</button></footer>
+	</div>
+	<p>注：请仔细填写家庭地址，一经提交将无法修改，如需调整，请联系就近门店。</p>
+</div>
+
+
+<div class="site_details">
+	<ul>
+	</ul>
+</div>
+
+<div class="hint">
+	<div class="hint_restart">
+	</div>
+</div>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+
+
+
+
+$(function(){
+					
+
+	//点击打开详细地址
+	$('.main div ul li').bind('click',function(){
+
+		if($(this).find('span').html() == "请选择" || $(this).find('span').html() != "未设置")
+		{
+
+			var getType = $(this).index()+1;
+			var addressId = $(this).prev('li').attr("address_id")
+
+			
+
+			//调用地址详情
+			yDataAjax('http://pinheadmin.qw1000.cn/Home/User/get_address', 'get' , {
+				type : getType,
+				address_id : addressId,
+			} , function( data ){
+				$('.site_details ul').html('');
+				if( data.status == 1)
+				{
+					//没有数据
+					if(getType == 1)
+					{
+						$('.hint_restart').html("该小区会员名额以全部被注册，" + data.msg + "，请重新选择");
+					}
+					else if(getType == 2)
+					{
+						$('.hint_restart').html("该栋楼会员名额以全部被注册，" + data.msg + "，请重新选择");
+					}
+					else if(getType == 3)
+					{
+						$('.hint_restart').html("该单元会员名额以全部被注册，" + data.msg + "，请重新选择");
+					}
+					else if(getType == 4)
+					{
+						$('.hint_restart').html("该房间号会员名额以全部被注册，" + data.msg + "，请重新选择");
+					}
+					
+					toShow('.hint_restart')
+					toHide()
+				}
+				else
+				{
+					//详情页弹出
+					$('.site_details').show();
+					$('.site_details').animate({opacity:1},200);
+					//判断点击li
+					$.each( data.data, function(index, val) {
+						if(getType == 1)
+						{
+							$('.site_details ul').append( '<li data-id='+val.c_id+'>' + val.c_community +'</li>');
+						}
+						else if(getType == 2)
+						{
+							$('.site_details ul').append( '<li data-id='+val.c_ligen_id+'>' + val.c_ligen_name +'</li>');
+						}
+						else if(getType == 3)
+						{
+							$('.site_details ul').append( '<li data-id='+val.c_storey_id+'>' + val.c_storey_name +'</li>');
+						}
+						else if(getType == 4)
+						{
+							$('.site_details ul').append( '<li data-id='+val.c_room_id+'>' + val.c_room_name +'</li>');
+						}
+						
+						$('.site_details ul li').bind('click' , function(event) {
+							
+							$('.main div ul li').eq(getType-1).attr({
+								"address_id" : $(this).attr('data-id'),
+								"data-next" : true,
+							})
+
+						
+							$('.site_details').hide();
+							$('.site_details').animate({opacity:0},200);
+							$('.main div ul li').eq(getType-1).find('span').html( $(this).html() );
+							$('.main div ul li').eq(getType-1).find('span').attr( 'data-html' , 'yes');
+
+
+							$('.main div ul li').eq(getType).find('span').html( "请选择" );
+						});
+					
+					});
+				}
+			})
+
+
+		}
+
+
+
+	})
+
+	//当前元素下级元素HTML内容更改
+	$('.main div ul li').eq(0).bind('click',function(){
+		$(this).siblings('li').find('span').html('未设置');
+	})
+
+
+
+	//存储详细地址，和房间号	
+	$('.main footer button').bind('click',function(){
+		var aSite = [];
+		$.each($('.main div ul li span'), function(index, val) {
+			if( $(this).attr('data-html') == 'yes' )
+			{
+				aSite.push($(this).html());
+			}
+
+		});
+		//4个地址全部选好，存储数据
+		if( aSite.length == 4 )
+		{
+			var sSite = aSite.join('');
+			sessionStorage.sSite = sSite;
+			
+			sessionStorage.sSiteNum =  $('.main div ul li:last').attr('address_id');
+			window.location.href = "perfect.html"
+		}
+		else
+		{
+			//没有数据
+			$('.hint_restart').html("数据不完整，请重新选择");
+			toShow('.hint_restart');
+			toHide()
+	
+		}
+		
+	})
+
+})
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

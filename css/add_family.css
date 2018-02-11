@@ -1,0 +1,164 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/member_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+}
+.main ul{
+	padding: 0 0.24rem;
+	font-size: 0.28rem;
+}
+.main ul li{
+	overflow: hidden;
+	border-bottom: 1px solid #c0c0c0;
+	line-height: 0.8rem;
+}
+.main ul li div#birthday{
+	padding: 0;
+}
+.main ul li a{
+	float: left;
+	color: #692407;
+
+}
+.main ul li span{
+	float: right;
+	color: #666666;
+}
+.main ul li:nth-of-type(1){
+	padding-right: 0.34rem;
+}
+.main ul li:nth-of-type(2){
+	padding-right: 0.34rem;
+}
+.main ul li span em{
+	font-size: 0.3rem;
+	color: #333333;
+	font-style: normal;
+}
+.main ul li span input{
+	border: none;
+	outline: medium;
+	background: none;
+	color: #666666;
+	line-height: 0.8rem;
+	font-size: 0.28rem;
+	text-align: right;
+	width: 5rem;
+}
+.main ul li span i{
+	font-style: normal;
+	display: block;
+	background: url('../images/arrows_right2.png') right/0.09rem 0.18rem no-repeat;
+	padding-right: 0.34rem;
+}
+.main div{
+	padding: 0 0.24rem;
+	overflow: hidden;
+} 
+.main div button{
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	background: #692407;
+	line-height: 0.8rem;
+	font-family: "FangZheng";
+	font-size: 0.3rem;
+	display: block;
+	margin-top: 1rem;
+}
+
+.select_sex{
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.select_sex div{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	background: #fff;
+	font-family: "FangZheng";
+	text-align: center;
+	font-size: 0.3rem;
+}
+.select_sex div ul li{
+	line-height: 0.88rem;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.select_sex div h1{
+	font-size: 0.26rem;
+	color: #999999;
+	line-height: 0.88rem;
+	border-bottom: 1px solid #e5e5e5;
+}
+.select_sex div ul li:last-child{
+	border-bottom: 0;
+}
+.select_sex div span{
+	display: block;
+	border-top: 0.2rem solid #f2f2f2;
+	line-height: 0.9rem;
+	color: #f03e3e;
+}
+
+
+
+.hint{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	top: 0;
+	display: none;
+}
+.hint > div{
+	width: 6.08rem;
+	position: absolute;
+	height: auto;
+	display: none;
+	opacity: 0;
+	margin-left: -3.04rem;
+	left: 50%;
+}
+
+.hint > div span{
+	display: block;
+	width: 0.5rem;
+	height: 0.8rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -0.25rem;
+}
+.hint > div div{
+	background: url('../images/hint_bg.png') center/6.08rem 4.37rem no-repeat;
+	width: 6.08rem;
+	height: 4.37rem;
+	overflow: hidden;
+}
+.hint > div div p:nth-of-type(1){
+	margin-top: 2.12rem;
+
+}
+.hint > div div p{
+	font-size: 0.32rem;
+	color: #692407;
+	width: 3.2rem;
+	text-align: center;
+}
+.hint > div div a{
+	font-size: 0.24rem;
+	color: #333333;
+	display: block;
+	text-align: center;
+	margin-top: 0.2rem;
+}

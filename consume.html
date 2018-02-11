@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>消费记录</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/consume.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<ul>
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 109;
+
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/Health/getHealthRecord" , 'get' , {
+		uid : uId,
+	} , function( data ){
+		
+		if ( data.status == 0 )
+		{
+			$.each( data.data , function(index, val) {
+				$('.main ul').append(
+					"<li>"+
+						"<div>"+
+							"<p>"+val["c_info"]+"</p>"+
+							"<time>"+val["c_add_time"]+"</time>"+
+						"</div>"+
+						"<span>"+val["c_amount"]+"</span>"+
+					"</li>"
+				)
+			});
+		}
+	})
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

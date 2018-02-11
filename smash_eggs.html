@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>喜砸金蛋</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/smash_eggs.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<style type="text/css">
+html,body{
+	height: 100%;
+}	
+</style>
+<body>
+	
+
+<div class="main">
+	<h1><img src="images/title.png" alt=""></h1>
+	<div class="golden_eggs">
+		<p class="radiance">
+			<img src="images/radiance.png" alt="">
+			<img src="images/radiance.png" alt=""><br clear="all">
+		</p>
+		<p class="egg"><img src="images/egg.png" alt=""><br clear="all"></p>
+		<p class="hammer"><img src="images/hammer.png" alt=""><br clear="all"></p>
+		<ul class="fireworks">
+			<li><img src="images/fireworks_1.png" alt=""><br clear="all"></li>
+			<li><img src="images/fireworks_2.png" alt=""><br clear="all"></li>
+			<li><img src="images/fireworks_3.png" alt=""><br clear="all"></li>
+			<li><img src="images/fireworks_4.png" alt=""><br clear="all"></li>
+			<li><img src="images/fireworks_5.png" alt=""><br clear="all"></li>
+			<li><img src="images/light.png" alt=""><br clear="all"></li> 
+		</ul>
+	</div>
+	<span><img src="images/click_a.png" alt=""></span>
+	<footer><img src="images/bottom.png" alt=""></footer>
+</div>
+<div class="pop_up">
+	<div class="pop_upGao">
+		<p>获得奖品</p>
+		<p>免费<span>5</span>次派送产品到家+</p>
+		<p><span>1</span>次到店体质检测！</p>
+		<a class="highlight" href="verify.html">领取奖品</a>
+	</div>
+	<div class="pop_upDi">
+		<p>获得奖品</p>
+		<p>到店体验免费饮品<span>1</span>杯！</p>
+		<a class="highlight" href="verify.html">领取奖品</a>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	
+var site = [
+	{
+		x : 40,
+		y : 30
+	},
+	{
+		x : 60,
+		y : 50
+	},
+	{
+		x : 80,
+		y : 30
+	},
+	{
+		x : 40,
+		y : 20
+	},
+	{
+		x : 40,
+		y : 20
+	}
+]	
+
+var getSite = sessionStorage.getItem( "getSite" );
+
+$('.main span').click(function(event) {
+	$('ul.fireworks').show();
+	$('p.egg').addClass('egg1');
+	setTimeout(function(){
+		$('p.egg').removeClass('egg1');
+	},500)
+	if( getSite == "true" )
+	{
+		setTimeout(function(){
+			$(".pop_up").show();
+			$(".pop_up").animate({'opacity' : 1 }, 500)
+			$(".pop_up .pop_upGao").show();
+		},1800)
+	}
+	else if( getSite == "false" )
+	{
+		setTimeout(function(){
+			$(".pop_up").show();
+			$(".pop_up").animate({'opacity' : 1 }, 500)
+			$(".pop_up .pop_upDi").show();
+		},1800)
+	}
+
+
+	for(var i = 0 ; i < site.length; i++)
+	{
+		changeSite( i , site[i].x , site[i].y)
+	}
+	
+});	
+
+
+
+function changeSite( num ,x , y) {
+	$('ul.fireworks li').eq( num ).animate({
+		left : x,
+		top : y
+	}, 300)
+}
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>健康豆详情</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/beans_details.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<h1>
+		<a>剩余健康豆数量</a>
+		<span><i>200</i>颗</span>
+	</h1>
+
+	<ul>
+		<li>
+			<a>名称</a>
+			<span>品禾银卡会员充值</span>
+		</li>
+		<li>
+			<a>充值时间</a>
+			<span>2017-10-17 09:10:12</span>
+		</li>
+		<li>
+			<a>充值金额</a>
+			<span>¥ 3000.00</span>
+		</li>
+	</ul>
+
+	<!-- <a class="btn">立即去使用</a> -->
+</div>
+<div class="curve"><img src="images/curve.png" alt=""></div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 109;
+	Request = GetRequest();
+	var c_id = Request["c_id"];
+	
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/Health/getRecordDetail" , 'get' , {
+		uid: uId,
+		id : c_id
+	} , function( data ){
+		console.log( data )
+		if( data.status == 0 )
+		{
+			$('h1 span i').html( data.health_bean );
+			$('ul li:eq(0) span').html( data.data.c_goods_title );
+			$('ul li:eq(1) span').html( data.data.c_add_time );
+			$('ul li:eq(2) span').html( "￥"+ data.data.c_price );
+		}
+	})
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

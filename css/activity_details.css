@@ -1,0 +1,64 @@
+html,body{
+	font-family: "FangZheng";
+	background: url('../images/myMember_bg.jpg') center/100% 100% no-repeat;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.main{
+	padding: 0 0.24rem 0.5rem;
+	overflow: hidden;
+}
+.title{
+	margin-top: 0.26rem;
+	background: url('../images/icon_graph.png') right top/0.3rem 0.3rem no-repeat;
+}
+.title h1{
+	color: #333333;
+	font-size: 0.3rem;
+	margin-bottom: 0.16rem;
+}
+.title time{
+	color: #999999;
+	display: block;
+	font-size: 0.24rem;
+}
+.banner{
+	overflow: hidden;
+	margin-top: 0.4rem;
+}
+
+.content{
+	margin-top: 0.5rem;
+	padding-bottom: 0.3rem;
+	font-size: 0.28rem;
+	color: #666666;
+	border-bottom: 1px solid #c0c0c0; 
+}
+.content p{
+	text-indent: 2em;
+	line-height: 0.5rem;
+	overflow: hidden;
+	margin-bottom: 0.2rem;
+}
+
+.apply{
+	margin-top: 0.3rem;
+}
+.apply h1{
+	font-size: 0.3rem;
+	text-align: center;
+}
+.apply h1 span{
+	color: #333333;
+	padding-bottom: 0.06rem;
+	border-bottom: 2px solid #666666;
+}
+.apply ul{
+	margin-top: 0.2rem;
+}
+.apply ul li{
+	font-size: 0.28rem;
+	line-height: 0.5rem;
+	color: #666666;
+}

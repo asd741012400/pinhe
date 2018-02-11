@@ -1,0 +1,218 @@
+html,body{
+	font-family: "FangZheng";
+	background: url('../images/integral_bg.jpg') center/100% 100% no-repeat;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.nav{
+	white-space:nowrap;
+	font-size: 0.3rem;
+	overflow-x: scroll;
+	position: fixed;
+	width: 100%;
+}
+.nav ul{
+	overflow: hidden;
+	padding-left: 0.24rem;
+	background: #fff;
+	min-width: 100%;
+}
+.nav ul li{
+	color: #333333;
+	float: left;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	margin-right: 0.4rem;
+}
+.nav ul li.active{
+	border-bottom: 3px solid #692407;
+	color: #692407;
+}
+
+.main{
+	padding: 1.1rem 0.24rem 1rem;
+	overflow: hidden;
+}
+
+.main > div{
+	display: none;
+}
+.main > div:first-of-type{
+	display: block;
+}
+.main .apply ul{
+	margin-top: 0.1rem;
+}
+.main .apply ul li{
+	overflow: hidden;
+	border-bottom: 1px solid #c0c0c0;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	padding: 0.2rem 0;
+}
+.main .apply ul li b{
+	width: 2.08rem;
+}
+.main .apply ul li div{
+	flex: 1;
+	margin-left: 0.2rem;
+}
+.main .apply ul li div h3{
+	font-size: 0.3rem;
+	color: #333333;
+	margin-top: 0.05rem
+}
+.main .apply ul li div p{
+	font-size: 0.26rem;
+	color: #666666;
+	margin-top: 0.12rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.main .apply ul li div time{
+	font-size: 0.24rem;
+	color: #666666;
+	display: block;
+	margin-top: 0.2rem;
+}
+
+.main .video h2{
+	font-size: 0.28rem;
+	color: #692407;
+}
+.main .video div{
+	margin-top: 0.3rem;
+	overflow: hidden;
+} 
+.main .video div b{
+	float: left;
+	position: relative;
+}
+.main .video div b video{
+	float: left;
+}
+.main .video div b em{
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	overflow: hidden;
+	width: 0.46rem;
+	color: #fff;
+	font-size: 0.26rem;
+}
+.main .video div b em time{
+	display: block;
+	padding-top: 0.3rem;
+	clear: both;
+}
+.main .video div span{
+	display: block;
+	width: 0.4rem;
+	height: 2px;
+	clear: both;
+	background: #692407;
+	float: left;
+	margin-top: 0.3rem;
+	margin-bottom: 0.2rem;
+}
+.main .video div p{
+	color: #333333;
+	font-size: 0.28rem;
+	clear: both;
+	padding-bottom: 0.2rem;
+}
+
+
+/* .specialist ul li{
+	overflow: hidden;
+	background: #fff;
+	margin-bottom: 0.2rem;
+	padding: 0.4rem 0;
+}
+.specialist ul li span{
+	width: 1.8rem;
+	height: 1.8rem;
+	display: block;
+	float: left;
+	border-radius: 50%;
+	border: 5px solid #89795a;
+	overflow: hidden;
+	margin-left: 0.2rem;
+}
+.specialist ul li div{
+	float: left;
+	width: 4.4rem;
+	line-height: 0.6rem;
+	margin-top: 0.15rem;
+	margin-left: 0.3rem;
+}
+.specialist ul li div h2{
+	font-size: 0.42rem;
+	color: #692407;
+	border-bottom: 1px dashed #c0c0c0;
+}
+.specialist ul li div h3{
+	font-size: 0.28rem;
+	color: #666666;
+	border-bottom: 1px dashed #c0c0c0;
+}
+.specialist ul li div p{
+	font-size: 0.28rem;
+	color: #333333;
+	width: 100%;
+	height: 0.6rem;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+} */
+
+.specialist ul li{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	background: #fff;
+	margin-bottom: 0.2rem;
+	padding: 0.4rem 0;
+}
+.specialist ul li span{
+	width: 1.8rem;
+	height: 1.8rem;
+	border-radius: 50%;
+	border: 5px solid #89795a;
+	margin-left: 0.2rem;
+	overflow: hidden;
+}
+.specialist ul li div{
+	flex: 1;
+	line-height: 0.6rem;
+	margin-top: 0.15rem;
+	margin-left: 0.3rem;
+}
+.specialist ul li div h2{
+	font-size: 0.42rem;
+	color: #692407;
+	border-bottom: 1px dashed #c0c0c0;
+}
+.specialist ul li div h3{
+	font-size: 0.28rem;
+	color: #666666;
+	border-bottom: 1px dashed #c0c0c0;
+}
+.specialist ul li div p{
+	font-size: 0.28rem;
+	color: #333333;
+	width: 4.6rem;
+	height: 0.6rem;
+	margin-left: 0;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}

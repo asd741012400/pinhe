@@ -1,0 +1,90 @@
+html,body{
+	font-family: "FangZheng";
+	background: url('../images/questionnaire_bg.jpg') center/100% 100% no-repeat;
+	height: 100%;
+	overflow-y: scroll;
+}
+.main{
+	padding: 0 0.24rem;
+}
+.main h1{
+	font-size: 0.3rem;
+	color: #333333;
+	text-align: center;
+	padding: 0.3rem 0;
+}
+.main h1 span{
+	font-size: 0.48rem;
+	color: #f03e3e;
+}
+.question ul li{
+	display: none;
+}
+.question ul li h4{
+	font-size: 0.3rem;
+	color: #333333;
+	line-height: 0.36rem;
+	padding-bottom: 0.3rem;
+}
+.question ul li h5{
+	font-size: 0.26rem;
+	color: #666666;
+	padding-bottom: 0.3rem;
+}
+.question ul li div p{
+	border: 1px solid #c0c0c0;
+	border-radius: 3px;
+	font-size: 0.26rem;
+	line-height: 0.7rem;
+	padding-left: 0.2rem;
+	background: #fff;
+	margin-bottom: 0.16rem;
+}
+.question ul li div p.active{
+	background: #e5e5e5;
+}
+.shangxia{
+	position: relative;
+	margin-top: 1.6rem;
+}
+.shangxia a{
+	position: absolute;
+	width: 1rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	font-size: 0.24rem;
+	color: #333333;
+	border: 1px solid #c0c0c0;
+	background: #fff;
+	text-align: center;
+	border-radius: 3px;
+	top: 0.15rem;
+	display: none;
+}
+.shangxia span{
+	display: block;
+	width: 3.2rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #ffffff;
+	background: #692407;
+	text-align: center;
+	border-radius: 3px;
+}
+.succeed{
+	position: fixed;
+	background: rgba(0, 0, 0, 0.8);
+	top: 0;
+	width: 4.4rem;
+	border-radius: 8px;
+	line-height: 1rem;
+	color: #fff;
+	font-size: 0.29rem;
+	text-align: center;
+	left: 50%;
+	margin-left: -2.2rem;
+	top: 50%;
+	margin-top: -0.5rem;
+	display: none;
+}

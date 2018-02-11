@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>健康豆</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/beans.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header>
+		<ul>
+			<li>
+				<p>我的健康豆</p>
+				<p><span>0</span>颗</p>
+				<p></p>
+				<p>健康豆明细</p>
+			</li>
+		</ul>
+	</header>
+	<a class="right" href="consume.html">消费记录</a>
+	<a class="member" href="upgrade.html?url=member">购买会员</a>
+	<div class="tab">
+
+		
+		<div class="without" style="display: none;">
+			<p>
+				<span><img src="images/icon_ku.png" alt=""></span>
+				<a>无礼品</a>
+			</p>
+		</div>
+
+		<div class="product">
+			<ul>
+			</ul>
+			<h3>没有更多健康豆了</h3>
+		</div>
+	</div>
+</div>
+
+<div class="hint">
+	<div>
+		<span></span>
+		<div>
+			<p>领取申请提交成功</p>
+			<p>请凭手机号到店领取</p>
+			<a href="#" class="close">确定</a>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/Health/getHealth" , "get" , {
+		uid : uId
+	} ,function( data ){
+		console.log( data )
+		if( data.status == 0 )
+		{
+			$('header ul li p span').html( data.health_bean );
+			$.each( data.data , function(index, val) {
+
+				$('.product ul').append(`
+					<li c_orderid="${val.c_orderid}">
+						<b>
+							<span><i>${val.c_price}</i>颗</span>
+						 	<strong>健康豆</strong>
+						</b>
+						<em></em>
+						<div>
+						 	<p>${val.c_goods_title}</p>
+						 	<p>充值时间：<i>${val.c_add_time}</i></p>
+							<a>查看详情></a>
+						</div>
+					</li>`)
+
+
+			});
+		$('.product ul li div a').click(function(event) {
+			var c_id = $(this).parents("li").attr('c_orderid');
+			window.location.href = "beans_details.html?c_id="+c_id;
+		});
+		console.log( data.data )
+		}
+	})
+
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

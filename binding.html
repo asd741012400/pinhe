@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>绑定手机号码</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/binding.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<header><img src="images/logo.png" alt=""></header>
+	<ul>
+		<li>
+			<a>手机号码</a>
+			<span><input class="phone" type="text" placeholder="请输入手机号码"></span>
+		</li>
+		<li>
+			<a>验证码</a>
+			<span><input class="note" type="text" placeholder="请输入验证码"></span>
+			<b class="get_verify"><img src="images/note.png" alt=""></b>
+		</li>
+	</ul>
+	<div><button>确定</button></div>
+</div>
+<div class="hint">
+	<div class="hint_restart">
+	</div>
+</div>
+
+<script src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+//验证短信发送	
+	var oTimer = null;
+	var bOn = true;
+	$('.get_verify').bind('click',function(){
+
+		if( bOn ){
+			bOn = false;
+			clearInterval(oTimer)
+			var num = 60;
+			$('.get_verify').html(num+"秒后重新发送")
+			oTimer = setInterval(function(){
+				num--;
+				$('.get_verify').html(num+"秒后重新发送")
+				if(num <= 0)
+				{
+					num = 60;
+					bOn = true;
+					$('.get_verify').html('<img src="images/note.png" alt="">')
+					clearInterval(oTimer)
+				}
+			},1000)
+
+			yDataAjax('http://pinheadmin.qw1000.cn/Home/Sms/send', 'post' , {
+				c_tel : $('input.phone').val()
+			} , function( data ){
+				if( data.status ){
+					alert( data.info )
+					bOn = true;
+					$('.get_verify').html('<img src="images/note.png" alt="">')
+					clearInterval(oTimer)
+				}
+				else{
+					console.log(data.info);		
+				}
+			})
+
+		}
+		
+	})
+
+
+
+	var bFlase = false;
+	$('input').bind('input propertychange' , function(event){
+		changeClick()
+	});
+
+	function changeClick(){
+		if( $('input.phone').val() != "" && $('input.note').val() != "" )
+		{
+			$('.main div button').css("background" , "#692407");
+			bFlase = true;
+		}
+		else
+		{
+			$('.main button').css("background" , "#cccccc");
+			bFlase = false;
+		}
+
+	}
+
+
+
+
+
+	$('.main div button').click(function(event) {
+				// sessionStorage.sTel = $('.phone').val();
+		if( bFlase )
+		{	
+			yDataAjax('http://pinheadmin.qw1000.cn/Home/Sms/Sms_verify', 'post' , {
+				tel : $('input.phone').val(),
+				code : $('input.note').val()
+			} , function( data ){
+				console.log( data )
+				if( data.status == 0 ){
+					$('.hint_restart').html( "绑定成功" )
+					toShow('.hint_restart')
+					toHide( true );
+					sessionStorage.sTel = $('input.phone').val();
+					
+				}
+				else
+				{
+					$('.hint_restart').html( data.msg )
+					toShow('.hint_restart')
+					toHide( false );
+				}
+			})
+		}
+
+
+	})
+
+})
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

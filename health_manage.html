@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>健康管理师</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/health_manage.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+
+
+<div class="decorate"><img src="images/decorate.png" alt=""></div>
+
+<div class="health">
+	<ul>
+
+
+	</ul>
+</div>
+<style>
+
+</style>
+
+<script src="js/public.js"></script>
+
+<script type="text/javascript">
+$(function(){
+
+	nDataAjax( "http://pinheadmin.qw1000.cn/Home/Index/getHealth" ,"get" ,function(data){
+
+		if( data.status == 0 ){
+
+			$.each( data.data , function(index, val) {
+				
+				$('.health ul').append(
+					`<li c_id="${val.c_id}">
+						<div class="content">
+							<span><img src="${val.c_avatar}" alt=""></span>
+							<div>
+								<p><b>${val.c_name}</b></p>
+								<p>联系方式：${val.c_mobile}</p>
+								<p>简介：${val.c_introduction}</p>
+							</div>
+						</div>
+					</li>`)
+
+			});
+
+			$('.health ul li').click(function(event) {
+
+				window.location.href = "health.html?id="+$(this).attr("c_id");
+
+			});
+
+		}
+		console.log( data )
+
+	})	
+
+})
+</script>
+
+
+
+
+
+
+</body>
+</html>
+
+
+

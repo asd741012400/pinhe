@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>体质调查问卷</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/questionnaire.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+
+
+<div class="main">
+	<h1>第<span>1</span>题</h1>
+	<div class="question">
+		<ul>
+			
+		</ul>
+	</div>
+	<div class="shangxia">
+		<a>上一题</a>
+		<span>下一题</span>
+	</div>
+</div>
+
+<div class="succeed">
+	<span></span>
+</div>
+<style>
+
+</style>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+let pages = 1,
+	pageSize = 5,
+	answerArr = [],
+	answerIndex = 0,
+	answerNum = $('.main h1 span').html(),
+	questionSum = 0;
+var Request = new Object();
+Request = GetRequest();
+var uId = Request["uid"];
+sessionStorage.uId = uId;
+
+if( uId == undefined ){
+	window.location.href = "http://pinheadmin.qw1000.cn/Home/Wechat/entry?url="+window.location.href;
+}
+
+
+questionnaire()
+
+$('.question ul').delegate('li div p', 'click', function(event) {
+	
+	$(this).addClass('active').siblings('p').removeClass('active');
+
+
+});
+
+
+$('.shangxia span').click(()=>{
+
+	$.each( $('.question ul li').eq(answerIndex).find('div').find('p'), function(index, val) {
+
+		if( $(this).hasClass('active') )
+		{
+			console.log( "answerIndex-----",answerIndex )
+
+			answerArr[answerIndex] = {};
+			answerArr[answerIndex].answerId = $(this).attr("answer_id");
+			answerArr[answerIndex].surveyId = $(this).parents('li').attr("survey_id");
+		}
+
+	});
+	if( answerArr[answerIndex] )
+	{
+		if( answerNum >= $('.question ul li').length && answerNum <= questionSum )
+		{
+			pages++;
+			questionnaire()
+
+		}
+
+		if( answerNum <= questionSum-1 )
+		{
+			answerNum++;
+			$('.main h1 span').html(answerNum)
+		}
+		else
+		{
+			addAurvey( answerArr )
+			$('.succeed span').html("测试完成")
+			succeedShow();
+			
+			$('.shangxia span').unbind('click');
+		}
+
+		if( answerNum != 1 )
+		{
+			$('.shangxia a').show();
+		}
+
+		answerIndex++;
+		$('.question ul li').eq(answerIndex).show().siblings('li').hide();
+			console.log( answerArr )
+
+	}
+	else
+	{
+		$('.succeed span').html("请选择答案")
+		succeedShow()
+	}
+
+});
+
+                                                                                               
+
+$('.shangxia a').click(()=>{
+
+
+
+	answerArr.splice(answerIndex , 1);
+
+	if( answerNum <= questionSum-1 )
+	{
+		answerNum--;
+		$('.main h1 span').html(answerNum)
+	}
+
+	if( answerNum == 1 )
+	{
+		$('.shangxia a').hide();
+	}
+	answerIndex--;
+	$('.question ul li').eq(answerIndex).show().siblings('li').hide();
+
+});
+
+function questionnaire()
+{
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/Survey/getSurvey" , "get" , {
+		p : pages,
+		paged : pageSize
+	} , function( data ){
+
+		if( data.status == 0 )
+		{
+			console.log( data )
+			if( data.data )
+			{
+
+				questionSum = data.count;
+				$.each( data.data , function(index, val) {
+
+					$('.question ul').append(
+						`<li survey_id="${val.c_survey_id}">
+							<h4>${val.c_question}</h4>
+							<h5>请选择:</h5>
+							<div>
+
+							</div>
+						</li>`)
+					$.each( val.answer , function(index2, val2) {
+
+						$('.question ul li').eq($('.question ul li').length-1).find('div').append(`<p answer_id="${val2.c_answer_id}">${val2.c_answer}</p>`)
+
+					});
+
+				});
+
+				$('.question ul li').hide()
+				$('.question ul li').eq(answerIndex).show();
+
+			}
+		}
+	})
+}
+
+
+
+function addAurvey( json )
+{
+
+	var answer = {};
+
+	answer.uid = uId;
+	answer.arr = json;
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/Survey/AddAurvey" , "post" , {
+		data : answer
+	} , function( data ){
+
+		if( data.status == 0 )
+		{
+			window.location.href = "physique.html";
+		}
+	})
+
+}
+
+
+function succeedShow(){
+    $('.succeed').show();
+    setTimeout(function(){
+        $('.succeed').hide();
+        
+    },1000)
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>我的健康管理师</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/health.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+
+<div class="main">
+	<div>
+		<header><img alt=""></header>
+		<h1 class="c_name"></h1>
+		<h2>联系方式：<span class="c_mobile"></span></h2>
+		<p>
+			<i><img src="images/icon_Ttriangle.png" alt=""></i>
+			<b>简/介</b>
+			<span class="c_introduction"></span>
+			<i><img src="images/icon_Btriangle.png" alt=""></i>
+		</p>
+	</div>
+</div>
+
+
+
+
+<script src="js/public.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 36;
+
+	Request = GetRequest();
+	var id = Request["id"];
+
+
+	if( id )
+	{
+		yDataAjax( "http://pinheadmin.qw1000.cn/Home/Index/getHealthDetail" , "get" , {
+		 	id : id
+		} , function(data){
+		 	console.log( data )
+		 	if( data.status == 0 )
+		 	{
+
+				$.each( data.data , function(index, val) {
+
+					if(index != 'c_avatar')
+					{
+						addHTML( $('.'+index) , val );
+					}
+				});
+				$('.c_avatar').attr('src' , data.data.c_avatar)
+		 	}
+		})	
+	}
+	else
+	{	
+		yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/get_my_health" , "get" , {
+		 	uid : uId
+		} , function(data){
+		 	console.log( data )
+		 			//赋值
+			if( data.status == 0 )
+		 	{
+
+				$.each( data.data , function(index, val) {
+
+					if(index != 'c_avatar')
+					{
+						addHTML( $('.'+index) , val );
+					}
+				});
+				$('.c_avatar').attr('src' , data.data.c_avatar)
+		 	}
+
+
+		})	
+	}
+
+})
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+

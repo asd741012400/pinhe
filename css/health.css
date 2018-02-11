@@ -1,0 +1,60 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/health_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem;
+	overflow-y: scroll;
+}
+.main div{
+	width: 3.64rem;
+}
+.main div header{
+	width: 3rem;
+	height: 3rem;
+	overflow: hidden;
+	border: 5px solid #89795a;
+	margin-top: 1.78rem;
+}
+.main div h1{
+	text-align: center;
+	font-size: 0.3rem;
+	color: #333333;
+	padding: 0.2rem 0;
+	font-weight: 500;
+}
+.main div h2{
+	text-align: center;
+	font-size: 0.3rem;
+	color: #333333;	
+	font-weight: 500;
+}
+.main div p{
+	border-top: 2px solid #333333;
+	border-bottom: 2px solid #333333;
+	margin-top: 0.3rem;
+}
+.main div p i{
+	display: block;
+	width: 0.16rem;
+	overflow: hidden;
+}
+.main div p b{
+	display: block;
+	text-align: center;
+	font-size: 0.3rem;
+	font-weight: 500;
+	padding-top: 0.15rem;
+	padding-bottom: 0.1rem;
+}
+.main div p span{
+	display: block;
+	font-size: 0.28rem;
+	color: #666666;
+	text-indent: 2em;
+	padding-bottom: 0.15rem;
+}

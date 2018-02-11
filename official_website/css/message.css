@@ -1,0 +1,342 @@
+body{
+	font-family: "FangZheng";
+}
+.navbar-default .navbar-nav>li>a:hover{
+	color: #692407;
+}
+.container-fluid{
+	width: 1200px;
+}
+
+.navbar-default{
+	background: #fff;
+	border-bottom: 1px solid #c0c0c0;
+	margin-bottom: 0;
+}
+.navbar-brand{
+	height: auto;
+}
+
+.navbar-brand{
+	padding: 0;
+	width: 1.66rem;
+	margin-top: 0.22rem;
+}
+
+.nav > li > a{
+	padding: 0;
+	line-height: 1rem;
+	height: 1rem;
+	padding-left: 0.5rem;
+	font-size: 18px;
+}
+.nav > li > a.navActive{
+	color: #692407;
+}
+.dropdown-menu{
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+	line-height: 0.46rem;
+	border-top: 2px solid #672307;
+	box-shadow: 0 5px 5px #ccc;
+	left: -0.25rem;
+	font-size: 18px;
+	width: 2.2rem;
+}
+.dropdown-menu li{
+	color: #333333;
+	padding: 0 0.25rem;
+	font-size: 0.16rem;
+}
+.dropdown-menu li:hover{
+	background: #f2f2f2;
+	color: #672307;
+
+}
+
+
+.message_content{
+	/* background: url('../../images/official/about_stone.png') right top 4.6rem/3.14rem 1.14rem no-repeat,url('../../images/official/xiantiao2.png') right top 7.4rem/3.04rem 0.6rem no-repeat,url('../../images/official/xiantiao3.png') left top 9rem/3.21rem 0.6rem no-repeat,url('../../images/official/news_stone.png') left bottom/5rem 1.28rem no-repeat,url('../../images/official/body_bg.jpg') repeat-y; */
+	background: #f2f2f2;
+	overflow: hidden;
+	padding-bottom: 0.6rem;
+}
+.message_content .product_title{
+	padding-top: 0.3rem;	
+	overflow: hidden;
+}
+
+.message_content .product_title p{
+	padding: 0.06rem 0.18rem;
+	margin-right: 0.3rem;
+	border-radius: 5px;
+	color: #333333;
+	border: 1px solid #c0c0c0;
+	background: #fff;
+	float: left;
+	margin-bottom: 0;
+	font-size: 0.2rem;
+	cursor:pointer;
+}
+.message_content .product_title p.active{
+	border: 1px solid #692407;
+	color: #692407;
+}
+
+.message_content ul{
+	margin-top: 0.3rem;
+}
+.message_content ul li{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	background: #fff;
+	padding: 0.1rem;
+	margin-bottom: 0.3rem;
+	cursor:pointer;
+}
+.message_content ul li:nth-of-type(1n){
+	flex-direction: row;
+}
+
+.message_content ul li:nth-of-type(2n){
+	flex-direction: row-reverse;
+}
+.message_content ul li span{
+	overflow: hidden;
+	display: block;
+	width: 7.14rem;
+	position: relative;
+}
+.message_content ul li span i{
+	position: absolute;
+	width: 98%;
+	top: 5px;
+	left: 5px;
+	transition: 1s;
+	height: 96%;
+}
+.message_content ul li span img{
+	transition: 1s;
+}
+.message_content ul li:hover span img{
+	transform: scale(1.1)
+}
+.message_content ul li:hover span i{
+	border: 1px solid #fff;
+}
+
+.message_content ul li div{
+	margin: 0 0.8rem;
+	text-align: center;
+	color: #666666;
+	flex: 1;
+	margin-top: 2%;
+}
+
+.message_content ul li:hover div h2{
+	color: #692407;
+}
+.message_content ul li div h2{
+	font-size: 0.22rem;
+	color: #333333;
+}
+.message_content ul li div em{
+	display: block;
+	width: 0.76rem;
+	border-bottom: 1px dashed #692407;
+	padding-top: 0.15rem;
+}
+.message_content ul li div em{
+	display: block;
+	width: 0.76rem;
+	border-bottom: 1px dashed #692407;
+	padding-top: 0.15rem;
+}
+.message_content ul li div time{
+	padding: 0.15rem 0;
+	display: block;
+	font-size: 0.18rem;
+}
+.message_content ul li div p{
+	font-size: 0.18rem;
+}
+.pages{
+	overflow: hidden;
+}
+.pages span{
+	float: left;
+	width: 0.46rem;
+	height: 0.46rem;
+	border-radius: 5px;
+	border: 1px solid #c0c0c0;
+	line-height: 0.46rem;
+	text-align: center;
+	font-size: 0.22rem;
+	background: #fff;
+	margin: 0 0.08rem;
+	cursor:pointer;
+}
+.pages a{
+	float: left;
+	width: 0.46rem;
+	height: 0.46rem;
+	border-radius: 5px;
+	border: 1px solid #c0c0c0;
+	line-height: 0.46rem;
+	text-align: center;
+	font-size: 0.22rem;
+	color: #666;
+	background: #fff;
+	margin: 0 0.08rem;
+	text-decoration: none;
+	cursor:pointer;
+}
+.pages span.active{
+	color: #fff;
+	background: #692407;
+}
+
+
+footer{
+	background: #fff;
+	text-align: center;
+	line-height: 0.46rem;
+	font-size: 0.16rem;
+}
+
+@media (min-width: 750px) and (max-width: 1200px) {
+
+	.container-fluid{
+		width: 80%;
+	}
+	
+
+
+	.nav > li > a{
+		padding-left: 0.2rem;
+	}
+
+
+	.about > div > ul{
+		float: left;
+		line-height: 0.28rem;
+		margin-top: 1.4rem;
+		width: 60%;
+	}
+
+
+}
+
+@media (max-width: 750px) { 
+
+	.container-fluid{
+		width: 90%;
+		
+	}
+	.navbar-brand{
+		padding: 0;
+		width: 82px;
+		margin-top: 11px;
+	}
+	.nav{
+		width: 110%;
+		text-align: center;
+	}
+	.nav > li > a{
+		padding: 0;
+		line-height: 40px;
+		font-size: 16px;
+		height: auto;
+	}
+
+	.dropdown-menu{
+		line-height: 30px;
+		left: -16px;
+		font-size: 14px;
+		text-align: center;
+	}
+	.dropdown-menu li{
+		padding: 0 16px;
+	}
+
+
+	.message_content{
+		/* background: url('../../images/official/about_stone.png') right top 6rem/1.84rem 0.64rem no-repeat,url('../../images/official/xiantiao2.png') right top 7rem/1.04rem 0.3rem no-repeat,url('../../images/official/xiantiao3.png') left top 8rem/1.54rem 0.3rem no-repeat,url('../../images/official/news_stone.png') left bottom/2rem 0.58rem no-repeat,url('../../images/official/body_bg.jpg') repeat-y; */
+		padding-bottom: 0.6rem;
+	}
+	
+
+	.message_content .product_title{
+		padding-top: 0.15rem;	
+		overflow: hidden;
+	}
+
+	.message_content .product_title p{
+		padding: 0.06rem 0.09rem;
+		margin-right: 0.15rem;
+	}
+
+	.message_content ul{
+		margin-top: 0.15rem;
+	}
+	.message_content ul li{
+		padding: 0.05rem;
+		margin-bottom: 0.15rem;
+		display: block;
+	}
+
+	.message_content ul li span{
+		width: 100%;
+	}
+	.message_content ul li span i{
+
+		width: 96%;
+
+		height: 92%;
+	}
+	.message_content ul li div{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.message_content ul li:nth-of-type(2n) div{
+		margin: 0;
+	}
+
+	.message_content ul li div h2{
+		font-size: 0.18rem;
+		margin-bottom: 0;
+	}
+	.message_content ul li div em{
+		width: 0.76rem;
+		padding-top: 0.08rem;
+	}
+	.message_content ul li div em{
+		width: 0.76rem;
+		padding-top: 0.08rem;
+	}
+	.message_content ul li div time{
+		padding: 0.08rem 0;
+		display: block;
+	}
+
+	.message_content #pages{
+		display: none;
+	}
+
+	.message_content #scroll{
+		font-size: 0.2rem;
+		text-align: center;
+		color: #666;
+		display: none;
+	}
+
+	footer{
+		background: #fff;
+		text-align: center;
+		line-height: 0.26rem;
+	} 
+}

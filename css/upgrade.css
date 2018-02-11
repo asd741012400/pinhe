@@ -1,0 +1,250 @@
+html,body{
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+.main{
+	font-family: "FangZheng";
+	height: 100%;
+	background: url('../images/upgrade_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	
+	overflow: scroll;
+}
+.main .right{
+	position: absolute;
+	right: 0.24rem;
+	top: 0.24rem;
+	font-size: 0.24rem;
+	color: #333333;
+	width: 0.57rem;
+	border-bottom: 1px solid #692407;
+	text-align: center;
+	line-height: 0.3rem;
+	padding-bottom: 0.05rem
+}
+.main header{
+	overflow: hidden;
+	padding: 0 0.24rem;
+}
+.main header ul{
+	width: 2.44rem;
+}
+.main header ul li{
+	width: 3.37rem;
+	height: 3rem;
+	background: url('../images/beans_title.png') center/100% 100% no-repeat;
+	overflow: hidden;
+	margin-top: 0.3rem;
+}
+.main header ul li p{
+	overflow: hidden;
+	top: 1.5rem;
+	width: 2rem;
+	font-size: 0.28rem;
+	position: relative;
+	right: 0.6rem;
+	text-align: center;
+	color: #333333;
+	line-height: 0.4rem
+}
+.main header ul li p:nth-of-type(2){
+	color: #692407;
+	font-size: 0.3rem;
+}
+.main header ul li p:nth-of-type(3){
+	width: 1rem;
+	height: 1px;
+	background: #999999;
+	right: 0.6rem;
+	margin: 0.1rem auto;
+}
+.main header ul li p:nth-of-type(4){
+	font-size: 0.26rem;
+}
+
+.main h1{
+	padding: 0 0.24rem;
+	background: #e5e5e5;
+	line-height: 0.5rem;
+	font-size: 0.24rem;
+	color: #666666;
+	margin-top: 0.4rem;
+	font-weight: 500;
+}
+.main h1 span{
+	display: block;
+	border-top: 1px solid #c0c0c0;
+}
+.main > div{
+	display: none;
+}
+
+
+
+
+.upgrade{
+	overflow: hidden;
+	color: #333333;
+	width: 6.2rem;
+	margin-top: 0.5rem;
+}
+
+.upgrade div{
+	font-size: 0.3rem;
+	text-align: center;
+}
+
+.upgrade div:nth-of-type(1){
+	float: left;
+}
+.upgrade div:nth-of-type(2){
+	float: right;
+}
+.upgrade div.active ul{
+	background: #692407;
+	border: none;
+	color: #fff;
+}
+.upgrade div.active ul li:nth-of-type(3){
+	color: #fff;
+}
+.upgrade div.active p{
+	color:#333333;
+	padding-top: 0.34rem
+}
+.upgrade div ul{
+	width: 2.6rem;
+	height: 1.94rem;
+	border: 1px solid #c0c0c0;
+	border-radius: 3px;
+	overflow: hidden;
+}
+.upgrade div ul li:nth-of-type(1){
+	padding-top: 0.29rem;
+	padding-bottom: 0.18rem;
+	border-bottom: 1px dashed #c0c0c0;
+	width: 1.72rem;
+}
+.upgrade div ul li:nth-of-type(2){
+	padding-top: 0.2rem;
+}
+.upgrade div ul li:nth-of-type(3){
+	padding-top: 0.1rem;
+	color: #999999;
+	font-size: 0.22rem;
+}
+.upgrade div ul li span{
+	display: inline-block;
+}
+.upgrade div p{
+	padding-top: 0.3rem;
+	font-size: 0.24rem;
+	color: #999999;
+}
+
+
+#yin{
+	overflow: hidden;
+	color: #333333;
+	width: 6.2rem;
+	margin-top: 0.5rem;
+}
+#yin div{
+	font-size: 0.3rem;
+	text-align: center;
+}
+#yin div ul{
+	width: 2.6rem;
+	height: 1.94rem;
+	border-radius: 3px;
+	background: #692407;
+	border: none;
+	color: #fff;
+	overflow: hidden;
+}
+#yin div ul li:nth-of-type(1){
+	padding-top: 0.29rem;
+	padding-bottom: 0.18rem;
+	border-bottom: 1px dashed #c0c0c0;
+	width: 1.72rem;
+}
+#yin div ul li:nth-of-type(2){
+	padding-top: 0.2rem;
+}
+#yin div ul li:nth-of-type(3){
+	padding-top: 0.1rem;
+	color: #fff;
+	font-size: 0.22rem;
+}
+#yin div p{
+	padding-top: 0.3rem;
+	font-size: 0.24rem;
+	color: #333333;
+}
+
+
+#jin{
+	overflow: hidden;
+	color: #333333;
+	width: 6.2rem;
+	margin-top: 0.5rem;
+}
+#jin div{
+	font-size: 0.3rem;
+	text-align: center;
+}
+#jin div ul{
+	width: 2.6rem;
+	height: 1.94rem;
+	border-radius: 3px;
+	background: #692407;
+	border: none;
+	color: #fff;
+	overflow: hidden;
+}
+#jin div ul li:nth-of-type(1){
+	padding-top: 0.29rem;
+	padding-bottom: 0.18rem;
+	border-bottom: 1px dashed #c0c0c0;
+	width: 1.72rem;
+}
+#jin div ul li:nth-of-type(2){
+	padding-top: 0.2rem;
+}
+#jin div ul li:nth-of-type(3){
+	padding-top: 0.1rem;
+	color: #fff;
+	font-size: 0.22rem;
+}
+#jin div p{
+	padding-top: 0.3rem;
+	font-size: 0.24rem;
+	color: #333333;
+}
+
+
+
+.main > span{
+	width: 7.02rem;
+	line-height: 0.8rem;
+	background: #692407;
+	border: none;
+	display: block;
+	font-size: 0.3rem;
+	text-align: center;
+	color: #fff;
+	border-radius: 3px;
+	margin-top: 0.6rem;
+}
+
+.main > a{
+	font-size: 0.24rem;
+	color: #999999;
+	float: right;
+	padding: 0.4rem 0.24rem 0;
+}
+.main > a i{
+	font-style: normal;
+	color: #692407;
+}

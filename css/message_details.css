@@ -1,0 +1,42 @@
+html,body{
+	font-family: "FangZheng";
+	background: url('../images/myMember_bg.jpg') center/100% 100% no-repeat;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.main{
+	padding: 0 0.24rem 0.5rem;
+	overflow: hidden;
+}
+.title{
+	margin-top: 0.26rem;
+	background: url('../images/icon_graph.png') right top/0.3rem 0.3rem no-repeat;
+}
+.title h1{
+	color: #333333;
+	font-size: 0.3rem;
+	margin-bottom: 0.16rem;
+}
+.title time{
+	color: #999999;
+	display: block;
+	font-size: 0.24rem;
+}
+.banner{
+	overflow: hidden;
+	margin-top: 0.4rem;
+}
+
+.content{
+	margin-top: 0.5rem;
+	font-size: 0.28rem;
+	color: #666666;
+}
+
+.content p{
+	text-indent: 2em;
+	line-height: 0.5rem;
+	overflow: hidden;
+	margin-bottom: 0.2rem;
+}

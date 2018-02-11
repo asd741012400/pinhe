@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>我的家庭</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/my_family.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+
+<div class="main">
+	<header>
+		<ul>
+			<li></li>
+		</ul>
+	</header>
+	<div>
+		<ul class="data">
+			<li class="kinsfolk1" data-location='0'>
+				<span><img src="images/add_family.png" alt=""></span>
+				<h1></h1>
+				<p></p>
+				<em><img src="images/family_x.png" alt=""></em>
+			</li>
+			<li class="kinsfolk2" data-location='1'>
+				<span><img src="images/add_family.png" alt=""></span>
+				<h1></h1>
+				<p></p>
+				<em><img src="images/family_x.png" alt=""></em>
+			</li>
+			<li class="kinsfolk3" data-location='2'>
+				<span><img src="images/add_family.png" alt=""></span>
+				<h1></h1>
+				<p></p>
+				<em><img src="images/family_x.png" alt=""></em>
+			</li>
+			<li class="kinsfolk4" data-location='3'>
+				<span><img src="images/add_family.png" alt=""></span>
+				<h1></h1>
+				<p></p>
+				<em><img src="images/family_x.png" alt=""></em>
+			</li>
+			<li class="my">
+				
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="hint">
+	<div class="hint_restart">
+	</div>
+</div>
+
+
+
+<script src="js/public.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 90;
+	var iLevel = "";
+
+	yDataAjax( 'http://pinheadmin.qw1000.cn/Home/User/get_my_family' , 'get' , {
+		uid : uId
+	}, function(data){
+		var imgSrc = '';
+
+		iLevel = data.info.c_level;
+		console.log( data )
+
+		if( data.info.c_sex == 2 )
+		{
+			imgSrc = 'images/sex_man.png';
+		}
+		else
+		{
+			imgSrc = 'images/sex_woman.png';
+		}
+
+		$('.my').attr("c_id" , data.info.c_id )
+		$('.my').html(
+			"<span><img src='"+ imgSrc +"'></span>"+
+			"<h1>"+ data.info.c_nickname +"</h1>"+
+			"<p>"+ data.info.c_title +"</p>"
+		)	
+
+		$.each( data.data, function(index, val) {
+			console.log( val )
+
+			if( val['c_sex'] == 2 )
+			{
+				imgSrc = 'images/sex_man.png';
+			}
+			else
+			{
+				imgSrc = 'images/sex_woman.png';
+			}
+			$('.data li').eq( val['c_location'] ).html(
+				"<span c_id="+val["c_id"]+"><img src='"+imgSrc+"' alt=''></span>"+
+				"<h1>"+ val['c_relation']+"</h1>"+
+				"<p>"+ val['c_title'] +"</p>"+
+				"<em><img src='images/family_x.png' alt=''></em>"
+			)
+		});
+
+
+
+
+
+	})
+	$('div ul.data li').bind('click',function(){
+		var imgSrc = $(this).find('span').find('img').attr('src');
+		var arr = ["name","relation","sex","dataSex","mobile","sTel","birthday"];
+		sessionStorage.location = $(this).attr('data-location');
+		deleteItem( arr )
+		if( iLevel >= 2 )
+			{
+
+
+			if( imgSrc == "images/add_family.png" )
+			{
+				
+				window.location.href = "add_family.html";
+			}
+			else
+			{
+				sessionStorage.cId = $(this).find('span').attr('c_id');
+				window.location.href = "family_details.html";
+
+			}
+		}
+		else
+		{
+
+			$('.hint_restart').html( "请升级会员后添加" )
+			toShow('.hint_restart' )
+			toHide( );
+
+		}
+
+
+	})
+
+	$('div ul li.my').unbind();
+})
+
+ //localStorage删除指定键对应的值
+function deleteItem( sArr ){
+	if( typeof sArr == "object" )
+	{	
+		
+		$.each( sArr , function(index, val) {
+			sessionStorage.removeItem(val)
+		});
+	}
+	else if( typeof sArr == "string" )
+	{
+		sessionStorage.removeItem(sArr)
+	}
+   
+}
+</script>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,45 @@
+html,body{
+	height: 100%;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/myMember_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem;
+	overflow: scroll;
+}
+.main ul{
+	padding: 0 0.24rem;
+}
+.main ul li{
+	border-bottom:1px solid #c0c0c0; 
+	overflow: hidden;
+	background: url('../images/arrows_right2.png') right/0.14rem 0.24rem no-repeat;
+	padding: 0.3rem 0;
+}
+.main ul li:last-of-type{
+	margin-bottom: 0.3rem
+}
+.main ul li div{
+	float: left;
+}
+.main ul li div p{
+	font-size: 0.28rem;
+	color: #333333;
+}
+.main ul li div time{
+	color: #666666;
+	font-size: 0.24rem;
+	display: block;
+	margin-top: 0.1rem
+}
+.main ul li span{
+	float: right;
+	color: #333333;
+	font-size: 0.3rem;
+	margin-top: 0.2rem;
+	height: 100%;
+	margin-right: 0.26rem;
+}

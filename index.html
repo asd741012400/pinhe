@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>品禾金蛋，等你来砸！</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<style type="text/css">
+html,body{
+	height: 100%;
+}	
+.main{
+	height: 100%;
+	background: #df002c;
+}
+.main span{
+	overflow: hidden;
+	display: block;
+}
+.main b{
+	overflow: hidden;
+	display: block;
+	width: 5.6rem;
+	height: 2.44rem;
+	margin-top: 0.4rem;
+}
+.main strong{
+	overflow: hidden;
+	display: block;
+	width: 3.74rem;
+	margin-top: 0.1rem; 
+}
+.main a{
+	width: 3.58rem;
+	display: block;
+	overflow: hidden;
+}
+
+.main em{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+</style>
+<body>
+	
+
+<div class="main">
+	<span><img src="images/gold.png" alt=""></span>
+	<b><img src="images/gold_ingot.png" alt=""></b>
+	<strong><img src="images/person.png" alt=""></strong>
+	<a href="select_site.html"><img src="images/entrance.png"></a>
+	<em><img src="images/index_bottom.jpg" alt=""></em>
+</div>
+
+
+<script type="text/javascript">
+ 
+
+
+function GetRequest() {
+  
+	var url = location.search; //获取url中"?"符后的字串
+	var theRequest = new Object();
+	if (url.indexOf("?") != -1) {
+	var str = url.substr(1);
+	strs = str.split("&");
+		for(var i = 0; i < strs.length; i ++) {
+			theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+		}
+	}
+	return theRequest;
+}
+
+
+
+var Request = new Object();
+Request = GetRequest();
+var uId = Request["uid"];
+sessionStorage.uId = uId;
+if( uId == undefined ){
+	window.location.href = "http://pinheadmin.qw1000.cn/Home/Wechat/entry?url="+window.location.href;
+}
+
+
+localStorage.setItem( "c_userid" , Request["uid"]);
+localStorage.setItem( "c_staffid" , Request["c_staffid"]);
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

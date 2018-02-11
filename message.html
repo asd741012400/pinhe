@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>品和资讯</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/message.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/swiper-3.4.2.jquery.min.js"></script>
+</head>
+
+<body>
+	
+<div class="banner">
+  <div class="swiper-container">
+      <div class="swiper-wrapper">
+		<!-- <div class="swiper-slide"><a href="#"><img src="images/message_banner.jpg"></a></div>
+		<div class="swiper-slide"><a href="#"><img src="images/message_banner.jpg"></a></div> -->
+      </div>
+      <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<div class="main">
+
+<ul>
+
+</ul>
+
+
+
+
+</div>
+
+<style>
+
+</style>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+
+$(function(){
+ 
+	nDataAjax( "http://pinheadmin.qw1000.cn/Home/News/getNews" ,"get" ,function(data){
+
+		if( data.status == 0 ){
+
+			$.each( data.banner_list , function(index, val) {
+				
+				$('.swiper-wrapper').append(
+					`<div class="swiper-slide" c_id="${val.c_id}">
+						<a href="#"><img src="${val.c_move_banner}"></a>
+					</div>`)
+				var mySwiper = new Swiper ('.swiper-container', {
+					autoHeight: true,
+					direction: 'horizontal',
+					pagination : '.swiper-pagination',
+					paginationType : 'bullets',
+					loop: true,
+                    autoplay : 3000,
+				})
+
+			});
+			$('.swiper-wrapper .swiper-slide').click(function(event) {
+				window.location.href = "message_details.html?c_id="+$(this).attr("c_id");
+			});
+
+
+			$.each( data.list , function(index, val) {
+				
+				$('.main ul').append(
+					`<li c_id="${val.c_id}">
+						<b><img src="${val.c_image}" alt=""></b>
+						<div>
+							<h3>${val.c_title}</h3>
+							<p>${val.c_introduction}</p>
+							<time>${val.c_add_time}</time>
+						</div>
+					</li>`)
+
+			});
+
+
+			$('.main ul li').click(function(event) {
+				window.location.href = "message_details.html?c_id="+$(this).attr("c_id");
+			});
+
+		}
+
+	})
+	
+})
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

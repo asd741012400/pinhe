@@ -1,0 +1,67 @@
+html,body{
+	font-family: "FangZheng";
+	background: url('../images/specialist_bg.jpg') center/100% 100% no-repeat;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.main{
+	overflow: hidden;
+	padding: 0 0.35rem;
+}
+.main .head_portrait{
+	margin-top: 1.2rem;
+	font-size: 0.3rem;
+	color: #333333;
+	text-align: center;
+}
+.main .head_portrait span{
+	width: 3.1rem;
+	display: block;
+	border-radius: 50%;
+	height: 3.1rem;
+	overflow: hidden;
+	border: 5px solid #89795a;
+}
+.main .head_portrait h3{
+	font-weight: 500;
+	padding-top: 0.2rem;
+	padding-bottom: 0.1rem;
+}
+.synopsis{
+	padding-bottom: 0.08rem;
+	border-bottom: 4px solid #692407;
+	margin: 0.3rem 0;
+}
+.synopsis h1{
+	height: 0.6rem;
+	line-height: 0.7rem;
+	background: #692407;
+	color: #fff;
+	font-size: 0.32rem;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	font-weight: 500;
+}
+.synopsis h1 a{
+	display: block;
+	background: url('../images/play.png') left/0.27rem 0.3rem no-repeat;
+	width: 1.3rem;
+	padding-left: 0.44rem;
+	margin-left: 0.14rem;
+	padding-right: 0.16rem;
+}
+.synopsis h1 span{
+	flex: 1;
+	font-size: 0.28rem;
+}
+
+.content{
+	font-size: 0.28rem;
+	color: #666666;
+	text-indent: 2em;
+	line-height: 0.36rem;
+}

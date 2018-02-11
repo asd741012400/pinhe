@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>银卡会员权益详情</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/equity_details.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<h1></h1>
+	<div>
+		<h2>一、在会员有效期内享受以下权益</h2>
+		<ul class="c_detail">
+
+		</ul>
+	</div>
+	<div>
+		<h2>二、成为银卡会员的条件</h2>
+		<ul class="c_condition">
+
+		</ul>
+	</div>
+
+	<div>
+		<h2>三、会员退卡保障</h2>
+		<ul class="c_guarantee">
+			
+		</ul>
+	</div>
+
+	<div>
+		<h2>四、续卡</h2>
+		<ul class="c_renewal">
+
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="curve"><img src="images/curve.png" alt=""></div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+
+$(function(){
+
+	var i_level = sessionStorage.getItem( "level" );
+
+	yDataAjax( "http://pinheadmin.qw1000.cn/Home/User/vip_detail" , "get" , {
+	 	level : i_level,
+	} , function(data){
+
+		$('.main > h1').html( data.data.title )
+	 	console.log( data )
+	 	var aDetail = data.data.c_detail.split("\n");
+		$.each( aDetail , function(index, val) {
+		 	
+			$('.c_detail').append('<li>'+ val +'</li>')
+
+		});
+
+
+		var aCondition = data.data.c_condition.split("\n");
+
+		$.each( aCondition , function(index, val) {
+		 	
+			$('.c_condition').append('<li>'+ val +'</li>')
+
+		});
+
+		var aGuarantee = data.data.c_guarantee.split("\n");
+
+		$.each( aGuarantee , function(index, val) {
+		 	
+			$('.c_guarantee').append('<li>'+ val +'</li>')
+
+		});
+
+		var cRenewal = data.data.c_renewal.split("\n");
+
+		$.each( cRenewal , function(index, val) {
+		 	
+			$('.c_renewal').append('<li>'+ val +'</li>')
+
+		});
+
+	})	
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

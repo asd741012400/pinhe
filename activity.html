@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>精彩活动</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/activity.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+<div class="nav">
+	<ul>
+		<li class="active" data-show="apply">活动报名</li>
+		<li data-show="video">活动视频</li>
+		<li data-show="specialist">专家介绍</li>
+	</ul>
+</div>
+
+<div class="main">
+	<div class="apply active">
+		<ul>
+		</ul>
+	</div>
+
+	<div class="video">
+		<h2>[往期精彩回顾]</h2>
+	</div>
+
+	<div class="specialist">
+		<ul>
+		</ul>
+	</div>
+</div>
+
+<style>
+/**/
+</style>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript">
+
+
+$(function(){
+ 
+	$('.nav ul').width( ($('.nav ul li').outerWidth() + 20) * $('.nav ul li').length )
+
+
+
+
+	nDataAjax( "http://pinheadmin.qw1000.cn/Home/News/getExpert" ,"get" ,function(data){
+
+		if( data.status == 0 ){
+			console.log("getExpert" ,data )
+
+			$.each( data.data , function(index, val) {
+				
+				$('.specialist ul').append(
+					`<li c_id="${val.c_id}">
+						<span><img src="${val.c_avatar}" alt=""></span>
+						<div>
+							<h2>${val.c_name}</h2>
+							<h3>职位：${val.c_position}</h3>
+							<p>简介：${val.c_introduction}</p>
+						</div>
+					</li>`)
+
+			});
+
+			$('.specialist ul li').click(function(event) {
+				
+				window.location.href = "specialist_details.html?c_id="+$(this).attr("c_id");
+
+			});
+		}
+
+	})
+
+	nDataAjax( "http://pinheadmin.qw1000.cn/Home/News/getWonderfulActivity" ,"get" ,function(data){
+
+		if( data.status == 0 ){
+			console.log("getWonderfulActivity" ,data )
+			$.each( data.list , function(index, val) {
+				
+				$('.apply ul').append(
+					`<li c_id="${val.c_id}">
+						<b><img src="${val.c_image}" alt=""></b>
+						<div>
+							<h3>${val.c_title}</h3>
+							<p>${val.c_introduction}</p>
+							<time>${val.c_add_time}"</time>
+						</div>
+					</li>`)
+
+			});
+
+			$('.apply ul li').click(function(event) {
+				
+				window.location.href = "activity_details.html?c_id="+$(this).attr("c_id");
+				
+			});
+		}
+
+	})
+	
+
+
+
+	nDataAjax( "http://pinheadmin.qw1000.cn/Home/News/getActivityVideo" ,"get" ,function(data){
+
+		if( data.status == 0 ){
+
+			console.log( "getActivityVideo",data )
+			$.each( data.list , function(index, val) {
+				
+				$('.video').append(
+					`<div c_id="${val.c_id}">
+						<b>
+							<video width="100%" id="v1">
+							  <!-- <source src="movie.ogg" type="video/a.ogg" /> -->
+							  <source src="${val.c_video}" type="video/mp4" />
+							</video>
+							<em>
+								<img src="images/play.png" alt="">
+							</em>
+						</b>
+						<span></span>
+						<p>${val.c_title}</p>
+					</div>`)
+			});
+
+
+
+
+
+			$('.video div b em').click(function(event) {
+				let oVideo = $(this).siblings('video')[0];
+				console.log( oVideo )
+				if( oVideo.paused )
+				{
+					oVideo.play()
+					$(this).hide();
+				}
+			});
+
+			$('.video div b video').click(function(event) {
+				let oEm = $(this).siblings('em');
+				if( this.paused )
+				{
+					this.play();
+					oEm.hide()
+				}
+				else
+				{
+					this.pause();
+					oEm.show()
+				}
+			});
+
+	
+		}
+
+	})
+
+
+
+
+
+	$('.nav ul li').click(function(event) {
+
+		$(this).addClass('active').siblings('li').removeClass('active');
+		$(`.${$(this).attr("data-show")}`).show().siblings('div').hide();
+
+	});
+
+})
+
+
+</script>
+
+
+</body>
+</html>
+
+
+

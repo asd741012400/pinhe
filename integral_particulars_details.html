@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="meta" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+	<title>积分明细详情</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/integral_particulars_details.css">
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	
+
+<div class="main">
+	<h1>
+		<a>剩余健康豆数量</a>
+		<span></span>
+	</h1>
+
+	<ul>
+		<li>
+			<a>时间</a>
+			<span></span>
+		</li>
+		<li>
+			<a>类型</a>
+			<span></span>
+		</li>
+		<li>
+			<a>名称</a>
+			<span></span>
+		</li>
+	</ul>
+
+</div>
+
+
+<script type="text/javascript" src="js/public.js"></script>
+
+
+<script type="text/javascript">
+
+$(function(){
+	var uId = sessionStorage.getItem( "uId" );
+	// var uId = 109;
+	Request = GetRequest();
+	var c_id = Request["c_id"];
+	
+
+	yDataAjax("http://pinheadmin.qw1000.cn/Home/Integral/getDetail" , 'get' , {
+		id : c_id
+	} , function( data ){
+
+		if( data.status == 0 )
+		{
+			$('h1 span').html( data.data.c_amount );
+			$('ul li:eq(0) span').html( data.data.c_add_time );
+			$('ul li:eq(1) span').html( data.data.c_type );
+			$('ul li:eq(2) span').html( data.data.c_info );
+		}
+	})
+
+
+})
+
+</script>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,39 @@
+html,body{
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+.main{
+	font-family: "FangZheng";
+	overflow: hidden;
+	height: 100%;
+	background: url('../images/myMember_bg.jpg') no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.24rem;
+	overflow: scroll;
+}
+.main h1{
+	color: #692407;
+	font-size: 0.32rem;
+	padding-top:0.4rem;
+	padding-bottom: 0.2rem; 
+}
+.main div{
+	margin-top: 0.2rem;
+}
+.main div h2{
+	color: #692407;
+	font-size: 0.28rem;
+	margin-bottom: 0.1rem;
+}
+.main div ul li{
+	color: #333333;
+	font-size: 0.28rem;
+	line-height: 0.56rem;
+}
+.curve{
+	position: absolute;
+	bottom: 1.8rem;
+	width: 2.57rem;
+	right: 0rem;
+}
